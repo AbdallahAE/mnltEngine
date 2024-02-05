@@ -12,23 +12,29 @@ namespace mnlt
     class Window
     {
         public:
-            Window(int width, int height, std::string name);
+            Window(int w, int h, std::string name);
             ~Window();
 
             Window(const Window &) = delete;
             Window &operator=(const Window &) = delete;
 
             bool shouldClose() { return glfwWindowShouldClose(window); }
-            VkExtent2D getExtent() {return {static_cast<uint32_t>(WIDTH), static_cast<uint32_t>(HEIGHT)};}
+            bool wasWindowResized() { return framebufferResized; }
+            void resetWindowResizedFlag() { framebufferResized = false; }
+
+            VkExtent2D getExtent() {return {static_cast<uint32_t>(width), static_cast<uint32_t>(height)};}
 
             void createWindowSurface(VkInstance instace, VkSurfaceKHR *surface);
 
         private:
-            GLFWwindow *window;
-            const int HEIGHT;
-            const int WIDTH;
+            int width;
+            int height;
+            bool framebufferResized = false;
+
             std::string windowName;
+            GLFWwindow *window;
             
+            static void framebufferResizeCallback(GLFWwindow *window, int width, int height);
             void initWindow();
     };
 }

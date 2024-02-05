@@ -1,10 +1,11 @@
 #include "window.hpp"
 
+#include <GLFW/glfw3.h>
 #include <stdexcept>
 
 namespace mnlt 
 {
-    Window::Window(int width, int height, std::string name) : WIDTH(width), HEIGHT(height), windowName(name)
+    Window::Window(int w, int h, std::string name) : width(w), height(h), windowName(name)
     {
         initWindow();
     }
@@ -19,10 +20,11 @@ namespace mnlt
     {
         glfwInit();
         glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 
-        window = glfwCreateWindow(WIDTH, HEIGHT, windowName.c_str(), nullptr, nullptr);
-
+        window = glfwCreateWindow(width, height, windowName.c_str(), nullptr, nullptr);
+        glfwSetWindowUserPointer(window, this);
+        glfwSetFramebufferSizeCallback(window, framebufferResizeCallback);
     }
 
     void Window::createWindowSurface(VkInstance instace, VkSurfaceKHR *surface)
@@ -31,5 +33,13 @@ namespace mnlt
         {
             throw std::runtime_error("Failed to create window surface");
         }
+    }
+
+    void Window::framebufferResizeCallback(GLFWwindow *window, int width, int height)
+    {
+        auto wind = reinterpret_cast<Window *>(glfwGetWindowUserPointer(window));
+        wind->framebufferResized = true;
+        wind->width = width;
+        wind->height = height;
     }
 }
