@@ -2,11 +2,6 @@
 
 #include "device.hpp"
 
-// vulkan headers
-#include <vulkan/vulkan.h>
-
-// std lib headers
-#include <vector>
 
 namespace mnlt {
 

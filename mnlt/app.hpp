@@ -4,6 +4,7 @@
 #include "device.hpp"
 #include "pipeline.hpp"
 #include "swap_chain.hpp"
+#include "model.hpp"
 
 #include <memory>
 
@@ -23,6 +24,7 @@ namespace mnlt
             void run();
 
         private:
+            void loadModels();
             void createPipelineLayout();
             void createPipeline();
             void createCommandBuffers();
@@ -34,5 +36,6 @@ namespace mnlt
             std::unique_ptr<Pipeline> pipeline;
             VkPipelineLayout pipelineLayout;
             std::vector<VkCommandBuffer> commandBuffers;
+            std::unique_ptr<Model> model;
     };
 }

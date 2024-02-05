@@ -2,8 +2,6 @@
 
 #include "device.hpp"
 
-#include <string>
-#include <vector>
 
 namespace mnlt
 {
