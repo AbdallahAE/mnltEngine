@@ -2,11 +2,9 @@
 
 #include "window.hpp"
 #include "device.hpp"
-#include "pipeline.hpp"
-#include "swap_chain.hpp"
 #include "game_object.hpp"
+#include "renderer.hpp"
 
-#include <memory>
 
 namespace mnlt
 {
@@ -25,21 +23,11 @@ namespace mnlt
 
         private:
             void loadGameObjects();
-            void createPipelineLayout();
-            void createPipeline();
-            void createCommandBuffers();
-            void freeCommandBuffers();
-            void drawFrame();
-            void recreateSwapChain();
-            void recordCommandBuffer(int imageIndex);
-            void renderGameObjects(VkCommandBuffer commandBuffer);
 
             Window window{WIDTH, HEIGHT, "MoonLight"};
             Device device{window};
-            std::unique_ptr<SwapChain> swapChain;
-            std::unique_ptr<Pipeline> pipeline;
-            VkPipelineLayout pipelineLayout;
-            std::vector<VkCommandBuffer> commandBuffers;
+            Renderer renderer{window, device};
+
             std::vector<GameObject> gameObjects;
     };
 }
