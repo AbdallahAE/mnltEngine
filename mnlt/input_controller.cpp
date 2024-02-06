@@ -2,13 +2,12 @@
 
 #include <GLFW/glfw3.h>
 #include <limits>
-#include <iostream>
 
 namespace mnlt
 {
     double prevMouseY = 0.0;
     double prevMouseX = 0.0;
-    void KeyboardMovementController::moveInPlaneXZ(GLFWwindow* window, float dt, GameObject& gameObject) 
+    void CameraController::moveInPlaneXZ(GLFWwindow* window, float dt, GameObject& gameObject) 
     {
         glm::vec3 rotate{0};
         
@@ -42,7 +41,6 @@ namespace mnlt
 
         float yaw = gameObject.transform.rotation.y;
         float pitch = -gameObject.transform.rotation.x;
-        std::cout << "yaw: " << yaw << std::endl;
         const glm::vec3 forwardDir
         {
             sin(yaw) * cos(pitch), 

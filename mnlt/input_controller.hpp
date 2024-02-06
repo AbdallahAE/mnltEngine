@@ -5,7 +5,7 @@
 
 namespace mnlt
 {
-    class KeyboardMovementController 
+    class CameraController 
     {
         public:
             struct KeyMappings 

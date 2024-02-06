@@ -27,7 +27,7 @@ namespace mnlt
         Camera camera{};
 
         auto viewerObject = GameObject::createGameObject();
-        KeyboardMovementController cameraController{};
+        CameraController cameraController{};
 
         auto currentTime = std::chrono::high_resolution_clock::now();
 
