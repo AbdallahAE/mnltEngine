@@ -8,6 +8,11 @@
 
 namespace mnlt
 {
+    struct RigidBodyComponent 
+    {
+        glm::vec3 velocity;
+        float mass{1.0f};
+    };
     struct TransformComponent
     {
         glm::vec3 translation{};
@@ -69,6 +74,7 @@ namespace mnlt
             std::shared_ptr<Model> model {};
             glm::vec3 color{};
             TransformComponent transform{};
+            RigidBodyComponent rigidBody{};
 
         private:
             GameObject(id_t objId) : id{objId} {}

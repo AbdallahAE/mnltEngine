@@ -23,6 +23,7 @@ namespace mnlt
 
         private:
             void loadGameObjects();
+            void loadPhysics();
 
             Window window{WIDTH, HEIGHT, "MoonLight"};
             Device device{window};
