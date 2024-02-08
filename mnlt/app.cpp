@@ -2,6 +2,7 @@
 #include "camera.hpp"
 #include "simple_render_system.hpp"
 #include "input_controller.hpp"
+#include "buffer.hpp"
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
@@ -12,6 +13,12 @@
 
 namespace mnlt
 {
+    struct GlobalUbo 
+    {
+        glm::mat4 projectionView{1.f};
+        glm::vec3 lightDirection = glm::normalize(glm::vec3{1.f, -3.f, -1.f});
+    };
+
     App::App()
     {
         //loadPhysics();
@@ -81,6 +88,17 @@ namespace mnlt
 
     void App::run()
     {
+        Buffer globalUboBuffer
+        {
+            device,
+            sizeof(GlobalUbo),
+            SwapChain::MAX_FRAMES_IN_FLIGHT,
+            VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
+            VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT,
+            device.properties.limits.minUniformBufferOffsetAlignment,
+        };
+        globalUboBuffer.map();
+
         SimpleRenderSystem simpleRenderSystem{device, renderer.getSwapChainRenderPass()};
         Camera camera{};
 
@@ -108,8 +126,19 @@ namespace mnlt
             if (auto commandBuffer = renderer.beginFrame()) 
             {
                 //gravitySystem.update(gameObjects, 1.f / 60, 5);
+                
+                int frameIndex = renderer.getFrameIndex();
+                FrameInfo frameInfo{frameIndex, frameTime, commandBuffer, camera};
+
+                // update
+                GlobalUbo ubo{};
+                ubo.projectionView = camera.getProjection() * camera.getView();
+                globalUboBuffer.writeToIndex(&ubo, frameIndex);
+                globalUboBuffer.flushIndex(frameIndex);
+
+                // render
                 renderer.beginSwapChainRenderPass(commandBuffer);
-                simpleRenderSystem.renderGameObjects(commandBuffer, gameObjects, camera);
+                simpleRenderSystem.renderGameObjects(frameInfo, gameObjects);
                 renderer.endSwapChainRenderPass(commandBuffer);
                 renderer.endFrame();
             }
@@ -174,11 +203,18 @@ namespace mnlt
 
     void App::loadGameObjects() 
     {
-        std::shared_ptr<Model> model = Model::createModelFromFile(device, "models/smooth_vase.obj");
-        auto cube = GameObject::createGameObject();
-        cube.model = model;
-        cube.transform.translation = {.0f, .0f, 2.5f};
-        cube.transform.scale = glm::vec3(3.f);
-        gameObjects.push_back(std::move(cube));
+        std::shared_ptr<Model> model = Model::createModelFromFile(device, "models/flat_vase.obj");
+        auto flatVase = GameObject::createGameObject();
+        flatVase.model = model;
+        flatVase.transform.translation = {-.5f, .5f, 2.5f};
+        flatVase.transform.scale = {3.f, 1.5f, 3.f};
+        gameObjects.push_back(std::move(flatVase));
+
+        model = Model::createModelFromFile(device, "models/smooth_vase.obj");
+        auto smoothVase = GameObject::createGameObject();
+        smoothVase.model = model;
+        smoothVase.transform.translation = {.5f, .5f, 2.5f};
+        smoothVase.transform.scale = {3.f, 1.5f, 3.f};
+        gameObjects.push_back(std::move(smoothVase));
     }
 }
