@@ -9,10 +9,15 @@ vertSources = $(shell find ./shaders -type f -name "*.vert")
 vertObjFiles = $(patsubst %.vert, %.vert.spv, $(vertSources))
 fragSources = $(shell find ./shaders -type f -name "*.frag")
 fragObjFiles = $(patsubst %.frag, %.frag.spv, $(fragSources))
+compSources = $(shell find ./shaders -type f -name "*.comp")
+compObjFiles = $(patsubst %.comp, %.comp.spv, $(compSources))
 
 
-all: $(TARGET) $(vertObjFiles) $(fragObjFiles)
+mnlt: $(TARGET) $(vertObjFiles) $(fragObjFiles)
 	g++ $(CFLAGS) -o $(BUILD) $(TARGET) $(LDFLAGS)
+
+vktut: vktut.cpp $(vertObjFiles) $(fragObjFiles) $(compObjFiles)
+	g++ $(CFLAGS) -o vktut vktut.cpp $(LDFLAGS)
 
 %.spv: %
 	glslc $< -o $@
@@ -22,4 +27,5 @@ run: $(BUILD)
 
 clean:
 	rm -f $(BUILD)
+	rm -f vktut
 	rm -f shaders/*.spv
