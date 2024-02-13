@@ -15,17 +15,6 @@
 
 namespace mnlt
 {
-    struct GlobalUbo 
-    {
-        alignas(16) glm::mat4 projection{1.f};
-        alignas(16) glm::mat4 view{1.f};
-        alignas(16) glm::vec3 sunLightPosition{1.f, -3.f, -1.f};
-        alignas(16) glm::vec4 sunLightColor{1.f, 1.f, 1.f, 0.f}; // w is light intensity
-        alignas(16) glm::vec4 ambientLightColor{1.f, 1.f, 1.f, .02f};  // w is intensity
-        alignas(16) glm::vec3 pointLightPosition{-1.f};
-        alignas(16) glm::vec4 pointLightColor{1.f};  // w is light intensity
-    };
-
     App::App()
     {
         globalPool = DescriptorPool::Builder(device)
@@ -161,9 +150,9 @@ namespace mnlt
                 //gravitySystem.update(frameInfo, 1.f / 60, 5);
 
                 // update
-                GlobalUbo ubo{};
                 ubo.projection = camera.getProjection();
                 ubo.view = camera.getView();
+                pointLightSystem.update(frameInfo, ubo);
                 uboBuffers[frameIndex]->writeToBuffer(&ubo);
                 uboBuffers[frameIndex]->flush();
 
@@ -255,5 +244,27 @@ namespace mnlt
         floor.transform.translation = {0.0f, 0.0f, 0.0f};
         floor.transform.scale = {3.0f, 1.0f, 3.0f};
         gameObjects.emplace(floor.getId(), std::move(floor));
+
+        std::vector<glm::vec3> lightColors
+        {
+            {1.f, .1f, .1f},
+            {.1f, .1f, 1.f},
+            {.1f, 1.f, .1f},
+            {1.f, 1.f, .1f},
+            {.1f, 1.f, 1.f},
+            {1.f, 1.f, 1.f}
+        };
+
+        for (int i = 0; i < lightColors.size(); i++) 
+        {
+            auto pointLight = GameObject::makePointLight(0.2f);
+            pointLight.color = lightColors[i];
+            auto rotateLight = glm::rotate(
+                glm::mat4(1.f),
+                (i * glm::two_pi<float>()) / lightColors.size(),
+                {0.f, -1.f, 0.f});
+            pointLight.transform.translation = glm::vec3(rotateLight * glm::vec4(-1.f, -1.f, -1.f, 1.f));
+            gameObjects.emplace(pointLight.getId(), std::move(pointLight));
+        }
     }
 }

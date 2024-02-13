@@ -3,6 +3,4 @@
 28fcc6e2aab853328037ec72adff0a32 /home/abdallah/Dev/mnltEngine/shaders/point_light.vert.spv
 5640455edee44dac679e1a49d3fb3975 /home/abdallah/Dev/mnltEngine/shaders/simple_shader.frag.spv
 ceabe88cbcf1a4d85547f3d01169e108 /home/abdallah/Dev/mnltEngine/shaders/simple_shader.vert.spv
-aa696d91e3f96e24bb0ae73e52c541b6 /home/abdallah/Dev/mnltEngine/shaders/vktut.frag.spv
-3100fc77a49f6705c8039df8f4d3d61e /home/abdallah/Dev/mnltEngine/shaders/vktut.vert.spv
 0f6b53631b6bb582f2bf4bfa3cc0a413 CMakeFiles/Shaders

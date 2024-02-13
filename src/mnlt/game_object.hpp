@@ -9,6 +9,10 @@
 
 namespace mnlt
 {
+    struct PointLightComponent
+    {
+        float lightIntensity = 1.0f;
+    };
     struct RigidBodyComponent 
     {
         glm::vec3 velocity;
@@ -90,6 +94,16 @@ namespace mnlt
             using id_t = unsigned int;
             using Map = std::unordered_map<id_t, GameObject>;
 
+            static GameObject makePointLight(float intensity = 10.f, float radius = 0.1f, glm::vec3 color = glm::vec3(1.f))
+            {
+                GameObject gameObj = GameObject::createGameObject();
+                gameObj.color = color;
+                gameObj.transform.scale.x = radius;
+                gameObj.pointLight = std::make_unique<PointLightComponent>();
+                gameObj.pointLight->lightIntensity = intensity;
+                return gameObj;
+            }
+
             static GameObject createGameObject()
             {
                 static id_t currentId = 0;
@@ -107,6 +121,7 @@ namespace mnlt
             glm::vec3 color{};
             TransformComponent transform{};
             RigidBodyComponent rigidBody{};
+            std::unique_ptr<PointLightComponent> pointLight = nullptr;
 
         private:
             GameObject(id_t objId) : id{objId} {}

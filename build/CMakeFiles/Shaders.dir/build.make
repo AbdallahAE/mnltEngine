@@ -70,8 +70,6 @@ CMakeFiles/Shaders: /home/abdallah/Dev/mnltEngine/shaders/point_light.frag.spv
 CMakeFiles/Shaders: /home/abdallah/Dev/mnltEngine/shaders/point_light.vert.spv
 CMakeFiles/Shaders: /home/abdallah/Dev/mnltEngine/shaders/simple_shader.frag.spv
 CMakeFiles/Shaders: /home/abdallah/Dev/mnltEngine/shaders/simple_shader.vert.spv
-CMakeFiles/Shaders: /home/abdallah/Dev/mnltEngine/shaders/vktut.frag.spv
-CMakeFiles/Shaders: /home/abdallah/Dev/mnltEngine/shaders/vktut.vert.spv
 
 /home/abdallah/Dev/mnltEngine/shaders/point_light.frag.spv: /home/abdallah/Dev/mnltEngine/shaders/point_light.frag
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating /home/abdallah/Dev/mnltEngine/shaders/point_light.frag.spv"
@@ -89,21 +87,11 @@ CMakeFiles/Shaders: /home/abdallah/Dev/mnltEngine/shaders/vktut.vert.spv
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating /home/abdallah/Dev/mnltEngine/shaders/simple_shader.vert.spv"
 	/usr/bin/glslangValidator -V /home/abdallah/Dev/mnltEngine/shaders/simple_shader.vert -o /home/abdallah/Dev/mnltEngine/shaders/simple_shader.vert.spv
 
-/home/abdallah/Dev/mnltEngine/shaders/vktut.frag.spv: /home/abdallah/Dev/mnltEngine/shaders/vktut.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating /home/abdallah/Dev/mnltEngine/shaders/vktut.frag.spv"
-	/usr/bin/glslangValidator -V /home/abdallah/Dev/mnltEngine/shaders/vktut.frag -o /home/abdallah/Dev/mnltEngine/shaders/vktut.frag.spv
-
-/home/abdallah/Dev/mnltEngine/shaders/vktut.vert.spv: /home/abdallah/Dev/mnltEngine/shaders/vktut.vert
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating /home/abdallah/Dev/mnltEngine/shaders/vktut.vert.spv"
-	/usr/bin/glslangValidator -V /home/abdallah/Dev/mnltEngine/shaders/vktut.vert -o /home/abdallah/Dev/mnltEngine/shaders/vktut.vert.spv
-
 Shaders: CMakeFiles/Shaders
 Shaders: /home/abdallah/Dev/mnltEngine/shaders/point_light.frag.spv
 Shaders: /home/abdallah/Dev/mnltEngine/shaders/point_light.vert.spv
 Shaders: /home/abdallah/Dev/mnltEngine/shaders/simple_shader.frag.spv
 Shaders: /home/abdallah/Dev/mnltEngine/shaders/simple_shader.vert.spv
-Shaders: /home/abdallah/Dev/mnltEngine/shaders/vktut.frag.spv
-Shaders: /home/abdallah/Dev/mnltEngine/shaders/vktut.vert.spv
 Shaders: CMakeFiles/Shaders.dir/build.make
 .PHONY : Shaders
 

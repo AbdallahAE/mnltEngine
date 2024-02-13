@@ -108,12 +108,12 @@ CMakeFiles/MoonLight.dir/clean:
 CMakeFiles/Shaders.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shaders.dir/build.make CMakeFiles/Shaders.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shaders.dir/build.make CMakeFiles/Shaders.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=16,17,18,19,20,21 "Built target Shaders"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=16,17,18,19 "Built target Shaders"
 .PHONY : CMakeFiles/Shaders.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Shaders.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abdallah/Dev/mnltEngine/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abdallah/Dev/mnltEngine/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Shaders.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/abdallah/Dev/mnltEngine/build/CMakeFiles 0
 .PHONY : CMakeFiles/Shaders.dir/rule

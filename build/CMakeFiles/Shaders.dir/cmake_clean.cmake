@@ -3,8 +3,6 @@ file(REMOVE_RECURSE
   "/home/abdallah/Dev/mnltEngine/shaders/point_light.vert.spv"
   "/home/abdallah/Dev/mnltEngine/shaders/simple_shader.frag.spv"
   "/home/abdallah/Dev/mnltEngine/shaders/simple_shader.vert.spv"
-  "/home/abdallah/Dev/mnltEngine/shaders/vktut.frag.spv"
-  "/home/abdallah/Dev/mnltEngine/shaders/vktut.vert.spv"
   "CMakeFiles/Shaders"
 )
 

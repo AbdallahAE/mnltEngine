@@ -1,5 +1,6 @@
 #pragma once
 
+#include "frame_info.hpp"
 #include "window.hpp"
 #include "device.hpp"
 #include "game_object.hpp"
@@ -32,6 +33,7 @@ namespace mnlt
 
             // note: order of declarations matters
             std::unique_ptr<DescriptorPool> globalPool{};
+            GlobalUbo ubo;
             GameObject::Map gameObjects;
     };
 }
