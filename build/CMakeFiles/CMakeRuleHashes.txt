@@ -1,4 +1,6 @@
 # Hashes of file build rules.
+735b8970f1f6ba600ddc1acea38589cf /home/abdallah/Dev/mnltEngine/shaders/point_light.frag.spv
+28fcc6e2aab853328037ec72adff0a32 /home/abdallah/Dev/mnltEngine/shaders/point_light.vert.spv
 5640455edee44dac679e1a49d3fb3975 /home/abdallah/Dev/mnltEngine/shaders/simple_shader.frag.spv
 ceabe88cbcf1a4d85547f3d01169e108 /home/abdallah/Dev/mnltEngine/shaders/simple_shader.vert.spv
 aa696d91e3f96e24bb0ae73e52c541b6 /home/abdallah/Dev/mnltEngine/shaders/vktut.frag.spv

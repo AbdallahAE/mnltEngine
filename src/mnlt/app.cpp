@@ -1,7 +1,8 @@
 #include "app.hpp"
 #include "camera.hpp"
 #include "frame_info.hpp"
-#include "simple_render_system.hpp"
+#include "render_systems/simple_render_system.hpp"
+#include "render_systems/point_light_system.hpp"
 #include "input_controller.hpp"
 #include "buffer.hpp"
 
@@ -16,10 +17,13 @@ namespace mnlt
 {
     struct GlobalUbo 
     {
-        glm::mat4 projectionView{1.f};
-        glm::vec4 ambientLightColor{1.f, 1.f, 1.f, .02f};  // w is intensity
-        glm::vec3 lightPosition{-1.f};
-        alignas(16) glm::vec4 lightColor{1.f};  // w is light intensity
+        alignas(16) glm::mat4 projection{1.f};
+        alignas(16) glm::mat4 view{1.f};
+        alignas(16) glm::vec3 sunLightPosition{1.f, -3.f, -1.f};
+        alignas(16) glm::vec4 sunLightColor{1.f, 1.f, 1.f, 0.f}; // w is light intensity
+        alignas(16) glm::vec4 ambientLightColor{1.f, 1.f, 1.f, .02f};  // w is intensity
+        alignas(16) glm::vec3 pointLightPosition{-1.f};
+        alignas(16) glm::vec4 pointLightColor{1.f};  // w is light intensity
     };
 
     App::App()
@@ -124,9 +128,11 @@ namespace mnlt
         }
 
         SimpleRenderSystem simpleRenderSystem{device, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
+        PointLightSystem pointLightSystem{device, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
         Camera camera{};
 
         auto viewerObject = GameObject::createGameObject();
+        viewerObject.transform.translation = {0.0f, -1.0f, -5.0f};
         CameraController cameraController{};
 
         auto currentTime = std::chrono::high_resolution_clock::now();
@@ -156,13 +162,15 @@ namespace mnlt
 
                 // update
                 GlobalUbo ubo{};
-                ubo.projectionView = camera.getProjection() * camera.getView();
+                ubo.projection = camera.getProjection();
+                ubo.view = camera.getView();
                 uboBuffers[frameIndex]->writeToBuffer(&ubo);
                 uboBuffers[frameIndex]->flush();
 
                 // render
                 renderer.beginSwapChainRenderPass(commandBuffer);
                 simpleRenderSystem.renderGameObjects(frameInfo);
+                pointLightSystem.render(frameInfo);
                 renderer.endSwapChainRenderPass(commandBuffer);
                 renderer.endFrame();
             }
@@ -227,25 +235,25 @@ namespace mnlt
 
     void App::loadGameObjects() 
     {
-        std::shared_ptr<Model> model = Model::createModelFromFile(device, "assets/models/flat_vase.obj");
+        std::shared_ptr<Model> model = Model::createModelFromFile(device, "assets/models/sphere.obj");
         auto flatVase = GameObject::createGameObject();
         flatVase.model = model;
-        flatVase.transform.translation = {-.5f, .5f, 2.5f};
-        flatVase.transform.scale = {3.f, 1.5f, 3.f};
+        flatVase.transform.translation = {-0.5f, -0.5f, 0.0f};
+        flatVase.transform.scale = {0.2f, 0.2f, 0.2f};
         gameObjects.emplace(flatVase.getId(), std::move(flatVase));
 
         model = Model::createModelFromFile(device, "assets/models/smooth_vase.obj");
         auto smoothVase = GameObject::createGameObject();
         smoothVase.model = model;
-        smoothVase.transform.translation = {.5f, .5f, 2.5f};
-        smoothVase.transform.scale = {3.f, 1.5f, 3.f};
+        smoothVase.transform.translation = {0.5f, 0.0f, 0.0f};
+        smoothVase.transform.scale = {3.0f, 2.5f, 3.0f};
         gameObjects.emplace(smoothVase.getId(), std::move(smoothVase));
 
         model = Model::createModelFromFile(device, "assets/models/quad.obj");
         auto floor = GameObject::createGameObject();
         floor.model = model;
-        floor.transform.translation = {0.f, .5f, 0.f};
-        floor.transform.scale = {3.f, 1.f, 3.f};
+        floor.transform.translation = {0.0f, 0.0f, 0.0f};
+        floor.transform.scale = {3.0f, 1.0f, 3.0f};
         gameObjects.emplace(floor.getId(), std::move(floor));
     }
 }

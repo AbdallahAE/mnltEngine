@@ -1,8 +1,8 @@
 #pragma once
 
-#include "device.hpp"
-#include "pipeline.hpp"
-#include "frame_info.hpp"
+#include "../device.hpp"
+#include "../pipeline.hpp"
+#include "../frame_info.hpp"
 
 // std
 #include <memory>

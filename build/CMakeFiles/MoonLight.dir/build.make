@@ -195,10 +195,38 @@ CMakeFiles/MoonLight.dir/src/mnlt/pipeline.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MoonLight.dir/src/mnlt/pipeline.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/abdallah/Dev/mnltEngine/src/mnlt/pipeline.cpp -o CMakeFiles/MoonLight.dir/src/mnlt/pipeline.cpp.s
 
+CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o: CMakeFiles/MoonLight.dir/flags.make
+CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o: /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/point_light_system.cpp
+CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o: CMakeFiles/MoonLight.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o -MF CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o.d -o CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o -c /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/point_light_system.cpp
+
+CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/point_light_system.cpp > CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.i
+
+CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/point_light_system.cpp -o CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.s
+
+CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o: CMakeFiles/MoonLight.dir/flags.make
+CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o: /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/simple_render_system.cpp
+CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o: CMakeFiles/MoonLight.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o -MF CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o.d -o CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o -c /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/simple_render_system.cpp
+
+CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/simple_render_system.cpp > CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.i
+
+CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/simple_render_system.cpp -o CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.s
+
 CMakeFiles/MoonLight.dir/src/mnlt/renderer.cpp.o: CMakeFiles/MoonLight.dir/flags.make
 CMakeFiles/MoonLight.dir/src/mnlt/renderer.cpp.o: /home/abdallah/Dev/mnltEngine/src/mnlt/renderer.cpp
 CMakeFiles/MoonLight.dir/src/mnlt/renderer.cpp.o: CMakeFiles/MoonLight.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/MoonLight.dir/src/mnlt/renderer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/MoonLight.dir/src/mnlt/renderer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MoonLight.dir/src/mnlt/renderer.cpp.o -MF CMakeFiles/MoonLight.dir/src/mnlt/renderer.cpp.o.d -o CMakeFiles/MoonLight.dir/src/mnlt/renderer.cpp.o -c /home/abdallah/Dev/mnltEngine/src/mnlt/renderer.cpp
 
 CMakeFiles/MoonLight.dir/src/mnlt/renderer.cpp.i: cmake_force
@@ -209,24 +237,10 @@ CMakeFiles/MoonLight.dir/src/mnlt/renderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MoonLight.dir/src/mnlt/renderer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/abdallah/Dev/mnltEngine/src/mnlt/renderer.cpp -o CMakeFiles/MoonLight.dir/src/mnlt/renderer.cpp.s
 
-CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.o: CMakeFiles/MoonLight.dir/flags.make
-CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.o: /home/abdallah/Dev/mnltEngine/src/mnlt/simple_render_system.cpp
-CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.o: CMakeFiles/MoonLight.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.o -MF CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.o.d -o CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.o -c /home/abdallah/Dev/mnltEngine/src/mnlt/simple_render_system.cpp
-
-CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/abdallah/Dev/mnltEngine/src/mnlt/simple_render_system.cpp > CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.i
-
-CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/abdallah/Dev/mnltEngine/src/mnlt/simple_render_system.cpp -o CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.s
-
 CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.o: CMakeFiles/MoonLight.dir/flags.make
 CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.o: /home/abdallah/Dev/mnltEngine/src/mnlt/swap_chain.cpp
 CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.o: CMakeFiles/MoonLight.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.o -MF CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.o.d -o CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.o -c /home/abdallah/Dev/mnltEngine/src/mnlt/swap_chain.cpp
 
 CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.s: cmake_force
 CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: CMakeFiles/MoonLight.dir/flags.make
 CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: /home/abdallah/Dev/mnltEngine/src/mnlt/window.cpp
 CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: CMakeFiles/MoonLight.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o -MF CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o.d -o CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o -c /home/abdallah/Dev/mnltEngine/src/mnlt/window.cpp
 
 CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.i: cmake_force
@@ -262,8 +276,9 @@ MoonLight_OBJECTS = \
 "CMakeFiles/MoonLight.dir/src/mnlt/input_controller.cpp.o" \
 "CMakeFiles/MoonLight.dir/src/mnlt/model.cpp.o" \
 "CMakeFiles/MoonLight.dir/src/mnlt/pipeline.cpp.o" \
+"CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o" \
+"CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o" \
 "CMakeFiles/MoonLight.dir/src/mnlt/renderer.cpp.o" \
-"CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.o" \
 "CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.o" \
 "CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o"
 
@@ -279,15 +294,16 @@ MoonLight: CMakeFiles/MoonLight.dir/src/mnlt/device.cpp.o
 MoonLight: CMakeFiles/MoonLight.dir/src/mnlt/input_controller.cpp.o
 MoonLight: CMakeFiles/MoonLight.dir/src/mnlt/model.cpp.o
 MoonLight: CMakeFiles/MoonLight.dir/src/mnlt/pipeline.cpp.o
+MoonLight: CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o
+MoonLight: CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o
 MoonLight: CMakeFiles/MoonLight.dir/src/mnlt/renderer.cpp.o
-MoonLight: CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.o
 MoonLight: CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.o
 MoonLight: CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o
 MoonLight: CMakeFiles/MoonLight.dir/build.make
 MoonLight: /usr/lib/libglfw.so.3.3
 MoonLight: /lib/libvulkan.so
 MoonLight: CMakeFiles/MoonLight.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable MoonLight"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable MoonLight"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MoonLight.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
