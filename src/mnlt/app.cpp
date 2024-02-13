@@ -152,6 +152,7 @@ namespace mnlt
                 // update
                 ubo.projection = camera.getProjection();
                 ubo.view = camera.getView();
+                ubo.inverseView = camera.getInverseView();
                 pointLightSystem.update(frameInfo, ubo);
                 uboBuffers[frameIndex]->writeToBuffer(&ubo);
                 uboBuffers[frameIndex]->flush();
@@ -171,54 +172,49 @@ namespace mnlt
     void App::loadPhysics()
     {
         // Create the Sun
-        auto sun = GameObject::createGameObject();
+        auto sun = GameObject::makePointLight(10.f);
         sun.transform.scale = glm::vec3{0.2f}; // Increase the size for better visualization
         sun.transform.translation = {0.0f, 0.0f, 0.0f};
         sun.color = {1.f, 1.f, 0.f}; // Yellow color for the sun
         sun.rigidBody.velocity = {.0f, .0f, .0f};
         sun.rigidBody.mass = 333000.f; // Sun's mass is significantly higher
-        sun.model = Model::createModelFromFile(device, "assets/models/colored_cube.obj"); // Use a more realistic model
         gameObjects.emplace(sun.getId(), std::move(sun));
 
         // Create Planets
         // Mercury
-        auto mercury = GameObject::createGameObject();
+        auto mercury = GameObject::makePointLight(10.f);
         mercury.transform.scale = glm::vec3{0.05f}; // Adjust scale
         mercury.transform.translation = {4.0f, 0.0f, 0.0f}; // Position relative to the sun
         mercury.color = {0.7f, 0.7f, 0.7f}; // Gray color for Mercury
         mercury.rigidBody.velocity = {.0f, .0f, 7.0f}; // Adjust initial velocity
         mercury.rigidBody.mass = 0.055f; // Adjust mass relative to Earth
-        mercury.model = Model::createModelFromFile(device, "assets/models/colored_cube.obj"); // Use a specific model for Mercury
         gameObjects.emplace(mercury.getId(), std::move(mercury));
 
         // Venus
-        auto venus = GameObject::createGameObject();
+        auto venus = GameObject::makePointLight(10.f);
         venus.transform.scale = glm::vec3{0.08f}; // Adjust scale
         venus.transform.translation = {6.0f, 0.0f, 0.0f}; // Position relative to the sun
         venus.color = {0.8f, 0.5f, 0.1f}; // Brownish color for Venus
         venus.rigidBody.velocity = {.0f, .0f, 5.0f}; // Adjust initial velocity
         venus.rigidBody.mass = 0.815f; // Adjust mass relative to Earth
-        venus.model = Model::createModelFromFile(device, "assets/models/colored_cube.obj"); // Use a specific model for Venus
         gameObjects.emplace(venus.getId(), std::move(venus));
 
         // Earth
-        auto earth = GameObject::createGameObject();
+        auto earth = GameObject::makePointLight(10.f);
         earth.transform.scale = glm::vec3{0.1f}; // Adjust scale
         earth.transform.translation = {9.0f, 0.0f, 0.0f}; // Position relative to the sun
         earth.color = {0.0f, 0.6f, 1.0f}; // Blue color for Earth
         earth.rigidBody.velocity = {.0f, .0f, 3.0f}; // Adjust initial velocity
         earth.rigidBody.mass = 1.0f; // Mass of Earth
-        earth.model = Model::createModelFromFile(device, "assets/models/colored_cube.obj"); // Use a specific model for Earth
         gameObjects.emplace(earth.getId(), std::move(earth));
 
         // Mars
-        auto mars = GameObject::createGameObject();
+        auto mars = GameObject::makePointLight(10.f);
         mars.transform.scale = glm::vec3{0.08f}; // Adjust scale
         mars.transform.translation = {12.0f, 0.0f, 0.0f}; // Position relative to the sun
         mars.color = {1.0f, 0.3f, 0.0f}; // Reddish color for Mars
         mars.rigidBody.velocity = {.0f, .0f, 2.5f}; // Adjust initial velocity
         mars.rigidBody.mass = 0.107f; // Adjust mass relative to Earth
-        mars.model = Model::createModelFromFile(device, "assets/models/colored_cube.obj"); // Use a specific model for Mars
         gameObjects.emplace(mars.getId(), std::move(mars));
     }
 

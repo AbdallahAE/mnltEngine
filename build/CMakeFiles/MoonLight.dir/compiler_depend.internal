@@ -5,8 +5,10 @@ CMakeFiles/MoonLight.dir/src/main.cpp.o
  /home/abdallah/Dev/mnltEngine/src/main.cpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/app.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/buffer.hpp
+ /home/abdallah/Dev/mnltEngine/src/mnlt/camera.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/descriptors.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/device.hpp
+ /home/abdallah/Dev/mnltEngine/src/mnlt/frame_info.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/game_object.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/model.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/renderer.hpp

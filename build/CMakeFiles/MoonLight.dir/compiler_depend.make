@@ -4,8 +4,10 @@
 CMakeFiles/MoonLight.dir/src/main.cpp.o: /home/abdallah/Dev/mnltEngine/src/main.cpp \
   /home/abdallah/Dev/mnltEngine/src/mnlt/app.hpp \
   /home/abdallah/Dev/mnltEngine/src/mnlt/buffer.hpp \
+  /home/abdallah/Dev/mnltEngine/src/mnlt/camera.hpp \
   /home/abdallah/Dev/mnltEngine/src/mnlt/descriptors.hpp \
   /home/abdallah/Dev/mnltEngine/src/mnlt/device.hpp \
+  /home/abdallah/Dev/mnltEngine/src/mnlt/frame_info.hpp \
   /home/abdallah/Dev/mnltEngine/src/mnlt/game_object.hpp \
   /home/abdallah/Dev/mnltEngine/src/mnlt/model.hpp \
   /home/abdallah/Dev/mnltEngine/src/mnlt/renderer.hpp \
@@ -4501,12 +4503,6 @@ CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: /home/abdallah/Dev/mnltEngine/sr
 
 /home/abdallah/Dev/mnltEngine/src/mnlt/input_controller.hpp:
 
-/usr/include/glm/ext/vector_float1_precision.hpp:
-
-/home/abdallah/Dev/mnltEngine/src/mnlt/frame_info.hpp:
-
-/home/abdallah/Dev/mnltEngine/src/mnlt/camera.hpp:
-
 /home/abdallah/Dev/mnltEngine/src/mnlt/app.cpp:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/syslimits.h:
@@ -4765,6 +4761,10 @@ CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: /home/abdallah/Dev/mnltEngine/sr
 
 /usr/include/glm/detail/qualifier.hpp:
 
+/usr/include/glm/detail/func_trigonometric.inl:
+
+/usr/include/glm/detail/func_packing.inl:
+
 /usr/include/c++/13.2.1/bits/hashtable_policy.h:
 
 /usr/include/asm-generic/errno.h:
@@ -4949,6 +4949,12 @@ CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: /home/abdallah/Dev/mnltEngine/sr
 
 /usr/include/bits/errno.h:
 
+/home/abdallah/Dev/mnltEngine/src/mnlt/camera.hpp:
+
+/usr/include/bits/time64.h:
+
+/usr/include/bits/stdlib-float.h:
+
 /usr/include/bits/floatn-common.h:
 
 /usr/include/c++/13.2.1/bits/stl_tree.h:
@@ -4983,6 +4989,30 @@ CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: /home/abdallah/Dev/mnltEngine/sr
 
 /usr/include/bits/locale.h:
 
+/usr/include/c++/13.2.1/bits/basic_string.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/c++/13.2.1/bits/alloc_traits.h:
+
+/usr/include/c++/13.2.1/bits/cpp_type_traits.h:
+
+/usr/include/bits/types/FILE.h:
+
+/usr/include/bits/flt-eval-method.h:
+
+/usr/include/c++/13.2.1/bits/locale_facets.h:
+
+/usr/include/glm/ext/quaternion_trigonometric.hpp:
+
+/usr/include/GL/glext.h:
+
+/usr/include/glm/ext/vector_uint3_sized.hpp:
+
+/usr/include/c++/13.2.1/bits/std_abs.h:
+
+/usr/include/c++/13.2.1/tr1/ell_integral.tcc:
+
 /usr/include/asm-generic/errno-base.h:
 
 /usr/include/GL/gl.h:
@@ -5013,12 +5043,6 @@ CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: /home/abdallah/Dev/mnltEngine/sr
 
 /usr/include/c++/13.2.1/string:
 
-/usr/include/bits/flt-eval-method.h:
-
-/usr/include/bits/types/FILE.h:
-
-/usr/include/c++/13.2.1/bits/locale_facets.h:
-
 /home/abdallah/Dev/mnltEngine/src/mnlt/descriptors.hpp:
 
 /usr/include/bits/floatn.h:
@@ -5037,6 +5061,10 @@ CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: /home/abdallah/Dev/mnltEngine/sr
 
 /usr/include/bits/types/error_t.h:
 
+/usr/include/GLFW/glfw3.h:
+
+/usr/include/c++/13.2.1/istream:
+
 /usr/include/c++/13.2.1/typeinfo:
 
 /usr/include/c++/13.2.1/bits/stl_uninitialized.h:
@@ -5047,13 +5075,23 @@ CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: /home/abdallah/Dev/mnltEngine/sr
 
 /usr/include/bits/atomic_wide_counter.h:
 
+/usr/include/glm/ext/vector_float1_precision.hpp:
+
+/home/abdallah/Dev/mnltEngine/src/mnlt/frame_info.hpp:
+
 /usr/include/bits/thread-shared-types.h:
 
-/usr/include/glm/ext/vector_uint4_sized.hpp:
+/usr/include/c++/13.2.1/pstl/execution_defs.h:
 
-/usr/include/glm/detail/type_mat3x3.inl:
+/usr/include/bits/endian.h:
 
-/usr/include/c++/13.2.1/bits/istream.tcc:
+/usr/include/glm/gtx/dual_quaternion.inl:
+
+/usr/include/c++/13.2.1/cfloat:
+
+/usr/include/vk_video/vulkan_video_codec_h264std_decode.h:
+
+/usr/include/c++/13.2.1/clocale:
 
 /usr/include/glm/ext/vector_bool4_precision.hpp:
 
@@ -5066,32 +5104,6 @@ CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: /home/abdallah/Dev/mnltEngine/sr
 /usr/include/c++/13.2.1/tr1/gamma.tcc:
 
 /usr/include/bits/stdint-least.h:
-
-/usr/include/glm/ext/quaternion_trigonometric.hpp:
-
-/usr/include/GL/glext.h:
-
-/usr/include/glm/ext/vector_uint3_sized.hpp:
-
-/usr/include/c++/13.2.1/bits/std_abs.h:
-
-/usr/include/c++/13.2.1/tr1/ell_integral.tcc:
-
-/usr/include/c++/13.2.1/bits/basic_string.h:
-
-/usr/include/sys/select.h:
-
-/usr/include/c++/13.2.1/bits/alloc_traits.h:
-
-/usr/include/c++/13.2.1/bits/cpp_type_traits.h:
-
-/usr/include/bits/time64.h:
-
-/usr/include/bits/stdlib-float.h:
-
-/usr/include/c++/13.2.1/istream:
-
-/usr/include/GLFW/glfw3.h:
 
 /home/abdallah/Dev/mnltEngine/src/mnlt/descriptors.cpp:
 
@@ -5121,9 +5133,9 @@ CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: /home/abdallah/Dev/mnltEngine/sr
 
 /usr/include/bits/uio_lim.h:
 
-/home/abdallah/Dev/mnltEngine/src/mnlt/game_object.hpp:
-
 /usr/include/c++/13.2.1/bits/functexcept.h:
+
+/home/abdallah/Dev/mnltEngine/src/mnlt/game_object.hpp:
 
 /usr/include/bits/math-vector.h:
 
@@ -5193,6 +5205,14 @@ CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: /home/abdallah/Dev/mnltEngine/sr
 
 /usr/include/c++/13.2.1/tr1/poly_laguerre.tcc:
 
+/usr/include/c++/13.2.1/bits/parse_numbers.h:
+
+/usr/include/vulkan/vk_platform.h:
+
+/usr/include/asm/errno.h:
+
+/usr/include/bits/stdint-uintn.h:
+
 /usr/include/bits/types/sigset_t.h:
 
 /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h:
@@ -5229,25 +5249,11 @@ CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: /home/abdallah/Dev/mnltEngine/sr
 
 /usr/include/bits/mathcalls-helper-functions.h:
 
-/usr/include/c++/13.2.1/bits/parse_numbers.h:
+/usr/include/glm/ext/vector_uint4_sized.hpp:
 
-/usr/include/vulkan/vk_platform.h:
+/usr/include/glm/detail/type_mat3x3.inl:
 
-/usr/include/bits/stdint-uintn.h:
-
-/usr/include/asm/errno.h:
-
-/usr/include/c++/13.2.1/pstl/execution_defs.h:
-
-/usr/include/bits/endian.h:
-
-/usr/include/glm/gtx/dual_quaternion.inl:
-
-/usr/include/c++/13.2.1/cfloat:
-
-/usr/include/vk_video/vulkan_video_codec_h264std_decode.h:
-
-/usr/include/c++/13.2.1/clocale:
+/usr/include/c++/13.2.1/bits/istream.tcc:
 
 /usr/include/gnu/stubs.h:
 
@@ -5425,8 +5431,6 @@ CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: /home/abdallah/Dev/mnltEngine/sr
 
 /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++locale.h:
 
-/usr/include/glm/detail/func_packing.inl:
-
 /usr/include/glm/ext/vector_int2.hpp:
 
 /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/ctype_base.h:
@@ -5464,5 +5468,3 @@ CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o: /home/abdallah/Dev/mnltEngine/sr
 /usr/include/c++/13.2.1/stdexcept:
 
 /usr/include/glm/detail/func_matrix.inl:
-
-/usr/include/glm/detail/func_trigonometric.inl:
