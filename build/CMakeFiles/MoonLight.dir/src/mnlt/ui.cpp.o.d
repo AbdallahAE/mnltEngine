@@ -1,7 +1,6 @@
-CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.o: \
- /home/abdallah/Dev/mnltEngine/src/mnlt/simple_render_system.cpp \
- /usr/include/stdc-predef.h \
- /home/abdallah/Dev/mnltEngine/src/mnlt/simple_render_system.hpp \
+CMakeFiles/MoonLight.dir/src/mnlt/ui.cpp.o: \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/ui.cpp /usr/include/stdc-predef.h \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/ui.hpp \
  /home/abdallah/Dev/mnltEngine/src/mnlt/device.hpp \
  /home/abdallah/Dev/mnltEngine/src/mnlt/window.hpp \
  /usr/include/GLFW/glfw3.h \
@@ -124,7 +123,6 @@ CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_vector.h \
  /usr/include/c++/13.2.1/bits/stl_bvector.h \
  /usr/include/c++/13.2.1/bits/vector.tcc \
- /home/abdallah/Dev/mnltEngine/src/mnlt/pipeline.hpp \
  /home/abdallah/Dev/mnltEngine/src/mnlt/frame_info.hpp \
  /home/abdallah/Dev/mnltEngine/src/mnlt/camera.hpp \
  /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
@@ -323,4 +321,8 @@ CMakeFiles/MoonLight.dir/src/mnlt/simple_render_system.cpp.o: \
  /usr/include/c++/13.2.1/bits/enable_special_members.h \
  /usr/include/c++/13.2.1/bits/node_handle.h \
  /usr/include/c++/13.2.1/bits/erase_if.h \
- /usr/include/c++/13.2.1/stdexcept
+ /home/abdallah/Dev/mnltEngine/src/mnlt/../../libs/imgui/imgui.h \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/../../libs/imgui/imconfig.h \
+ /usr/include/string.h /usr/include/strings.h \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/../../libs/imgui/imgui_impl_glfw.h \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/../../libs/imgui/imgui_impl_vulkan.h

@@ -58,5 +58,7 @@ namespace mnlt
             bool hasIndexBuffer = false;
             std::unique_ptr<Buffer> indexBuffer;
             uint32_t indexCount;
+
+            std::string modelFilePath;
     };
 }

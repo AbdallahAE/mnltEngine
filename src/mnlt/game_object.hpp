@@ -5,6 +5,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include <memory>
+#include <string>
 #include <unordered_map>
 
 namespace mnlt
@@ -87,6 +88,10 @@ namespace mnlt
             };
         };
     };
+    struct UIComponent
+    {
+        bool showPropertyWindow = false;
+    };
 
     class GameObject
     {
@@ -118,13 +123,18 @@ namespace mnlt
             id_t getId() { return id; }
 
             std::shared_ptr<Model> model {};
-            glm::vec3 color{};
+            glm::vec3 color{1.f,1.f,1.f};
             TransformComponent transform{};
             RigidBodyComponent rigidBody{};
+            UIComponent ui;
+            std::string name;
             std::unique_ptr<PointLightComponent> pointLight = nullptr;
 
         private:
-            GameObject(id_t objId) : id{objId} {}
+            GameObject(id_t objId) : id{objId}
+            {
+                name = "GameObject" + std::to_string(id);
+            }
             id_t id;
 
     };

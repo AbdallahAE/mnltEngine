@@ -36,7 +36,7 @@ namespace mnlt
         
     }
 
-    std::unique_ptr<Model> Model::createModelFromFile(Device &device, const std::string &filepath) 
+    std::unique_ptr<Model> Model::createModelFromFile(Device &device, const std::string &filepath)
     {
         BuilderData builderData{};
         builderData.loadModel(ENGINE_DIR + filepath);

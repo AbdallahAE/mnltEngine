@@ -329,6 +329,10 @@ CMakeFiles/MoonLight.dir/src/mnlt/app.cpp.o: \
  /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../pipeline.hpp \
  /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/point_light_system.hpp \
  /home/abdallah/Dev/mnltEngine/src/mnlt/input_controller.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/ui.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/../../libs/imgui/imgui.h \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/../../libs/imgui/imconfig.h \
+ /usr/include/string.h /usr/include/strings.h \
  /usr/include/c++/13.2.1/chrono /usr/include/c++/13.2.1/bits/chrono.h \
  /usr/include/c++/13.2.1/ratio /usr/include/c++/13.2.1/ctime \
  /usr/include/c++/13.2.1/bits/parse_numbers.h

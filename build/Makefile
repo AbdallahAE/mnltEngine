@@ -142,6 +142,174 @@ Shaders/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shaders.dir/build.make CMakeFiles/Shaders.dir/build
 .PHONY : Shaders/fast
 
+libs/imgui/imgui.o: libs/imgui/imgui.cpp.o
+.PHONY : libs/imgui/imgui.o
+
+# target to build an object file
+libs/imgui/imgui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui.cpp.o
+.PHONY : libs/imgui/imgui.cpp.o
+
+libs/imgui/imgui.i: libs/imgui/imgui.cpp.i
+.PHONY : libs/imgui/imgui.i
+
+# target to preprocess a source file
+libs/imgui/imgui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui.cpp.i
+.PHONY : libs/imgui/imgui.cpp.i
+
+libs/imgui/imgui.s: libs/imgui/imgui.cpp.s
+.PHONY : libs/imgui/imgui.s
+
+# target to generate assembly for a file
+libs/imgui/imgui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui.cpp.s
+.PHONY : libs/imgui/imgui.cpp.s
+
+libs/imgui/imgui_demo.o: libs/imgui/imgui_demo.cpp.o
+.PHONY : libs/imgui/imgui_demo.o
+
+# target to build an object file
+libs/imgui/imgui_demo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_demo.cpp.o
+.PHONY : libs/imgui/imgui_demo.cpp.o
+
+libs/imgui/imgui_demo.i: libs/imgui/imgui_demo.cpp.i
+.PHONY : libs/imgui/imgui_demo.i
+
+# target to preprocess a source file
+libs/imgui/imgui_demo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_demo.cpp.i
+.PHONY : libs/imgui/imgui_demo.cpp.i
+
+libs/imgui/imgui_demo.s: libs/imgui/imgui_demo.cpp.s
+.PHONY : libs/imgui/imgui_demo.s
+
+# target to generate assembly for a file
+libs/imgui/imgui_demo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_demo.cpp.s
+.PHONY : libs/imgui/imgui_demo.cpp.s
+
+libs/imgui/imgui_draw.o: libs/imgui/imgui_draw.cpp.o
+.PHONY : libs/imgui/imgui_draw.o
+
+# target to build an object file
+libs/imgui/imgui_draw.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_draw.cpp.o
+.PHONY : libs/imgui/imgui_draw.cpp.o
+
+libs/imgui/imgui_draw.i: libs/imgui/imgui_draw.cpp.i
+.PHONY : libs/imgui/imgui_draw.i
+
+# target to preprocess a source file
+libs/imgui/imgui_draw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_draw.cpp.i
+.PHONY : libs/imgui/imgui_draw.cpp.i
+
+libs/imgui/imgui_draw.s: libs/imgui/imgui_draw.cpp.s
+.PHONY : libs/imgui/imgui_draw.s
+
+# target to generate assembly for a file
+libs/imgui/imgui_draw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_draw.cpp.s
+.PHONY : libs/imgui/imgui_draw.cpp.s
+
+libs/imgui/imgui_impl_glfw.o: libs/imgui/imgui_impl_glfw.cpp.o
+.PHONY : libs/imgui/imgui_impl_glfw.o
+
+# target to build an object file
+libs/imgui/imgui_impl_glfw.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_impl_glfw.cpp.o
+.PHONY : libs/imgui/imgui_impl_glfw.cpp.o
+
+libs/imgui/imgui_impl_glfw.i: libs/imgui/imgui_impl_glfw.cpp.i
+.PHONY : libs/imgui/imgui_impl_glfw.i
+
+# target to preprocess a source file
+libs/imgui/imgui_impl_glfw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_impl_glfw.cpp.i
+.PHONY : libs/imgui/imgui_impl_glfw.cpp.i
+
+libs/imgui/imgui_impl_glfw.s: libs/imgui/imgui_impl_glfw.cpp.s
+.PHONY : libs/imgui/imgui_impl_glfw.s
+
+# target to generate assembly for a file
+libs/imgui/imgui_impl_glfw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_impl_glfw.cpp.s
+.PHONY : libs/imgui/imgui_impl_glfw.cpp.s
+
+libs/imgui/imgui_impl_vulkan.o: libs/imgui/imgui_impl_vulkan.cpp.o
+.PHONY : libs/imgui/imgui_impl_vulkan.o
+
+# target to build an object file
+libs/imgui/imgui_impl_vulkan.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_impl_vulkan.cpp.o
+.PHONY : libs/imgui/imgui_impl_vulkan.cpp.o
+
+libs/imgui/imgui_impl_vulkan.i: libs/imgui/imgui_impl_vulkan.cpp.i
+.PHONY : libs/imgui/imgui_impl_vulkan.i
+
+# target to preprocess a source file
+libs/imgui/imgui_impl_vulkan.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_impl_vulkan.cpp.i
+.PHONY : libs/imgui/imgui_impl_vulkan.cpp.i
+
+libs/imgui/imgui_impl_vulkan.s: libs/imgui/imgui_impl_vulkan.cpp.s
+.PHONY : libs/imgui/imgui_impl_vulkan.s
+
+# target to generate assembly for a file
+libs/imgui/imgui_impl_vulkan.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_impl_vulkan.cpp.s
+.PHONY : libs/imgui/imgui_impl_vulkan.cpp.s
+
+libs/imgui/imgui_tables.o: libs/imgui/imgui_tables.cpp.o
+.PHONY : libs/imgui/imgui_tables.o
+
+# target to build an object file
+libs/imgui/imgui_tables.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_tables.cpp.o
+.PHONY : libs/imgui/imgui_tables.cpp.o
+
+libs/imgui/imgui_tables.i: libs/imgui/imgui_tables.cpp.i
+.PHONY : libs/imgui/imgui_tables.i
+
+# target to preprocess a source file
+libs/imgui/imgui_tables.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_tables.cpp.i
+.PHONY : libs/imgui/imgui_tables.cpp.i
+
+libs/imgui/imgui_tables.s: libs/imgui/imgui_tables.cpp.s
+.PHONY : libs/imgui/imgui_tables.s
+
+# target to generate assembly for a file
+libs/imgui/imgui_tables.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_tables.cpp.s
+.PHONY : libs/imgui/imgui_tables.cpp.s
+
+libs/imgui/imgui_widgets.o: libs/imgui/imgui_widgets.cpp.o
+.PHONY : libs/imgui/imgui_widgets.o
+
+# target to build an object file
+libs/imgui/imgui_widgets.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_widgets.cpp.o
+.PHONY : libs/imgui/imgui_widgets.cpp.o
+
+libs/imgui/imgui_widgets.i: libs/imgui/imgui_widgets.cpp.i
+.PHONY : libs/imgui/imgui_widgets.i
+
+# target to preprocess a source file
+libs/imgui/imgui_widgets.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_widgets.cpp.i
+.PHONY : libs/imgui/imgui_widgets.cpp.i
+
+libs/imgui/imgui_widgets.s: libs/imgui/imgui_widgets.cpp.s
+.PHONY : libs/imgui/imgui_widgets.s
+
+# target to generate assembly for a file
+libs/imgui/imgui_widgets.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_widgets.cpp.s
+.PHONY : libs/imgui/imgui_widgets.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -454,6 +622,30 @@ src/mnlt/swap_chain.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.s
 .PHONY : src/mnlt/swap_chain.cpp.s
 
+src/mnlt/ui.o: src/mnlt/ui.cpp.o
+.PHONY : src/mnlt/ui.o
+
+# target to build an object file
+src/mnlt/ui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/ui.cpp.o
+.PHONY : src/mnlt/ui.cpp.o
+
+src/mnlt/ui.i: src/mnlt/ui.cpp.i
+.PHONY : src/mnlt/ui.i
+
+# target to preprocess a source file
+src/mnlt/ui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/ui.cpp.i
+.PHONY : src/mnlt/ui.cpp.i
+
+src/mnlt/ui.s: src/mnlt/ui.cpp.s
+.PHONY : src/mnlt/ui.s
+
+# target to generate assembly for a file
+src/mnlt/ui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/ui.cpp.s
+.PHONY : src/mnlt/ui.cpp.s
+
 src/mnlt/window.o: src/mnlt/window.cpp.o
 .PHONY : src/mnlt/window.o
 
@@ -488,6 +680,27 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Shaders"
 	@echo "... MoonLight"
+	@echo "... libs/imgui/imgui.o"
+	@echo "... libs/imgui/imgui.i"
+	@echo "... libs/imgui/imgui.s"
+	@echo "... libs/imgui/imgui_demo.o"
+	@echo "... libs/imgui/imgui_demo.i"
+	@echo "... libs/imgui/imgui_demo.s"
+	@echo "... libs/imgui/imgui_draw.o"
+	@echo "... libs/imgui/imgui_draw.i"
+	@echo "... libs/imgui/imgui_draw.s"
+	@echo "... libs/imgui/imgui_impl_glfw.o"
+	@echo "... libs/imgui/imgui_impl_glfw.i"
+	@echo "... libs/imgui/imgui_impl_glfw.s"
+	@echo "... libs/imgui/imgui_impl_vulkan.o"
+	@echo "... libs/imgui/imgui_impl_vulkan.i"
+	@echo "... libs/imgui/imgui_impl_vulkan.s"
+	@echo "... libs/imgui/imgui_tables.o"
+	@echo "... libs/imgui/imgui_tables.i"
+	@echo "... libs/imgui/imgui_tables.s"
+	@echo "... libs/imgui/imgui_widgets.o"
+	@echo "... libs/imgui/imgui_widgets.i"
+	@echo "... libs/imgui/imgui_widgets.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -527,6 +740,9 @@ help:
 	@echo "... src/mnlt/swap_chain.o"
 	@echo "... src/mnlt/swap_chain.i"
 	@echo "... src/mnlt/swap_chain.s"
+	@echo "... src/mnlt/ui.o"
+	@echo "... src/mnlt/ui.i"
+	@echo "... src/mnlt/ui.s"
 	@echo "... src/mnlt/window.o"
 	@echo "... src/mnlt/window.i"
 	@echo "... src/mnlt/window.s"

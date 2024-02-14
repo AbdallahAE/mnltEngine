@@ -5,6 +5,7 @@
 #include "render_systems/point_light_system.hpp"
 #include "input_controller.hpp"
 #include "buffer.hpp"
+#include "ui.hpp"
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
@@ -18,8 +19,19 @@ namespace mnlt
     App::App()
     {
         globalPool = DescriptorPool::Builder(device)
-          .setMaxSets(SwapChain::MAX_FRAMES_IN_FLIGHT)
-          .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, SwapChain::MAX_FRAMES_IN_FLIGHT)
+          .setMaxSets(11000)
+          .addPoolSize(VK_DESCRIPTOR_TYPE_SAMPLER, 1000)
+          .addPoolSize(VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1000)
+          .addPoolSize(VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, 1000)
+          .addPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, 1000)
+          .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER, 1000)
+          .addPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER, 1000)
+          .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1000)
+          .addPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, 1000)
+          .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC, 1000)
+          .addPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC, 1000)
+          .addPoolSize(VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1000)
+          .setPoolFlags(VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT)
           .build();
         
         //loadPhysics();
@@ -116,6 +128,15 @@ namespace mnlt
                 .build(globalDescriptorSets[i]);
         }
 
+        UI ui
+        {
+            window,
+            device,
+            renderer.getSwapChainRenderPass(),
+            renderer.getImageCount(),
+            globalPool->getDescriptorPool()
+        };
+
         SimpleRenderSystem simpleRenderSystem{device, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
         PointLightSystem pointLightSystem{device, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
         Camera camera{};
@@ -157,10 +178,16 @@ namespace mnlt
                 uboBuffers[frameIndex]->writeToBuffer(&ubo);
                 uboBuffers[frameIndex]->flush();
 
+                ui.newFrame();
+
                 // render
                 renderer.beginSwapChainRenderPass(commandBuffer);
                 simpleRenderSystem.renderGameObjects(frameInfo);
                 pointLightSystem.render(frameInfo);
+
+                ui.runExample(&frameInfo.gameObjects);
+                ui.render(commandBuffer);
+
                 renderer.endSwapChainRenderPass(commandBuffer);
                 renderer.endFrame();
             }
@@ -220,18 +247,20 @@ namespace mnlt
 
     void App::loadGameObjects() 
     {
-        std::shared_ptr<Model> model = Model::createModelFromFile(device, "assets/models/sphere.obj");
-        auto flatVase = GameObject::createGameObject();
-        flatVase.model = model;
-        flatVase.transform.translation = {-0.5f, -0.5f, 0.0f};
-        flatVase.transform.scale = {0.2f, 0.2f, 0.2f};
-        gameObjects.emplace(flatVase.getId(), std::move(flatVase));
+        std::shared_ptr<Model> model = Model::createModelFromFile(device, "assets/models/colored_cube.obj");
+        auto cube = GameObject::createGameObject();
+        cube.model = model;
+        cube.transform.translation = {-0.5f, -0.5f, 0.0f};
+        cube.transform.scale = {0.2f, 0.2f, 0.2f};
+        cube.name = "cube";
+        gameObjects.emplace(cube.getId(), std::move(cube));
 
         model = Model::createModelFromFile(device, "assets/models/smooth_vase.obj");
         auto smoothVase = GameObject::createGameObject();
         smoothVase.model = model;
         smoothVase.transform.translation = {0.5f, 0.0f, 0.0f};
         smoothVase.transform.scale = {3.0f, 2.5f, 3.0f};
+        smoothVase.name = "smoothvase";
         gameObjects.emplace(smoothVase.getId(), std::move(smoothVase));
 
         model = Model::createModelFromFile(device, "assets/models/quad.obj");
@@ -239,6 +268,7 @@ namespace mnlt
         floor.model = model;
         floor.transform.translation = {0.0f, 0.0f, 0.0f};
         floor.transform.scale = {3.0f, 1.0f, 3.0f};
+        floor.name = "floor";
         gameObjects.emplace(floor.getId(), std::move(floor));
 
         std::vector<glm::vec3> lightColors

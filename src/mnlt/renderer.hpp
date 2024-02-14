@@ -21,6 +21,7 @@ namespace mnlt
 
             VkRenderPass getSwapChainRenderPass() const { return swapChain->getRenderPass(); }
             float getAspectRatio() const { return swapChain->extentAspectRatio(); }
+            uint32_t getImageCount() const { return swapChain->imageCount(); }
             bool isFrameInProgress() const { return isFrameStarted; }
 
             VkCommandBuffer getCurrentCommandBuffer() const 

@@ -16,6 +16,7 @@ namespace mnlt
     {
         glm::mat4 modelMatrix{1.f};
         glm::mat4 normalMatrix{1.f};
+        glm::vec3 color{1.f};
     };
 
     SimpleRenderSystem::SimpleRenderSystem(Device& device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout) : device{device} 
@@ -90,6 +91,7 @@ namespace mnlt
             auto modelMatrix = obj.transform.mat4();
             push.modelMatrix = obj.transform.mat4();
             push.normalMatrix = obj.transform.normalMatrix();
+            push.color = obj.color;
 
             vkCmdPushConstants
             (
