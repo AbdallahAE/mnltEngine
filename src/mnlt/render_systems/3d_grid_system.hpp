@@ -1,24 +1,23 @@
 #pragma once
 
 #include "../device.hpp"
-#include "../frame_info.hpp"
 #include "../pipeline.hpp"
+#include "../frame_info.hpp"
 
 // std
 #include <memory>
 
 namespace mnlt
 {
-    class PointLightSystem
+    class GridSystem 
     {
         public:
-            PointLightSystem(Device &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
-            ~PointLightSystem();
+            GridSystem(Device &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
+            ~GridSystem();
 
-            PointLightSystem(const PointLightSystem &) = delete;
-            PointLightSystem &operator=(const PointLightSystem &) = delete;
+            GridSystem(const GridSystem &) = delete;
+            GridSystem &operator=(const GridSystem &) = delete;
 
-            void update(FrameInfo &frameInfo, GlobalUbo &ubo);
             void render(FrameInfo &frameInfo);
 
         private:

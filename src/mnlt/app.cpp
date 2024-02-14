@@ -1,6 +1,7 @@
 #include "app.hpp"
 #include "camera.hpp"
 #include "frame_info.hpp"
+#include "render_systems/3d_grid_system.hpp"
 #include "render_systems/simple_render_system.hpp"
 #include "render_systems/point_light_system.hpp"
 #include "input_controller.hpp"
@@ -34,8 +35,8 @@ namespace mnlt
           .setPoolFlags(VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT)
           .build();
         
-        //loadPhysics();
-        loadGameObjects();
+        loadPhysics();
+        //loadGameObjects();
     }
     App::~App()
     {
@@ -136,18 +137,20 @@ namespace mnlt
             renderer.getImageCount(),
             globalPool->getDescriptorPool()
         };
-
-        SimpleRenderSystem simpleRenderSystem{device, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
-        PointLightSystem pointLightSystem{device, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
         Camera camera{};
 
         auto viewerObject = GameObject::createGameObject();
         viewerObject.transform.translation = {0.0f, -1.0f, -5.0f};
         CameraController cameraController{};
 
+        SimpleRenderSystem simpleRenderSystem{device, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
+        PointLightSystem pointLightSystem{device, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
+        GridSystem gridSystem{device, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
+
+
         auto currentTime = std::chrono::high_resolution_clock::now();
 
-        //GravityPhysicsSystem gravitySystem{6.674e-4f};
+        GravityPhysicsSystem gravitySystem{6.674e-4f};
 
         while (!window.shouldClose())
         {
@@ -168,7 +171,7 @@ namespace mnlt
                 int frameIndex = renderer.getFrameIndex();
                 FrameInfo frameInfo{frameIndex, frameTime, commandBuffer, camera, globalDescriptorSets[frameIndex], gameObjects};
                                 
-                //gravitySystem.update(frameInfo, 1.f / 60, 5);
+                gravitySystem.update(frameInfo, 1.f / 60, 5);
 
                 // update
                 ubo.projection = camera.getProjection();
@@ -184,8 +187,10 @@ namespace mnlt
                 renderer.beginSwapChainRenderPass(commandBuffer);
                 simpleRenderSystem.renderGameObjects(frameInfo);
                 pointLightSystem.render(frameInfo);
+                if(camera.enableGrid)
+                    gridSystem.render(frameInfo);
 
-                ui.runExample(&frameInfo.gameObjects);
+                ui.runExample(frameInfo);
                 ui.render(commandBuffer);
 
                 renderer.endSwapChainRenderPass(commandBuffer);

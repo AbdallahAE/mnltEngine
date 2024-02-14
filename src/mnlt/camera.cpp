@@ -16,6 +16,8 @@ namespace mnlt
         projectionMatrix[3][0] = -(right + left) / (right - left);
         projectionMatrix[3][1] = -(bottom + top) / (bottom - top);
         projectionMatrix[3][2] = -near / (far - near);
+        this->near = near;
+        this->far = far;
     }
 
     void Camera::setPerspectiveProjection(float fovy, float aspect, float near, float far) 
@@ -28,6 +30,8 @@ namespace mnlt
         projectionMatrix[2][2] = far / (far - near);
         projectionMatrix[2][3] = 1.f;
         projectionMatrix[3][2] = -(far * near) / (far - near);
+        this->near = near;
+        this->far = far;
     }
 
     void Camera::setViewDirection(glm::vec3 position, glm::vec3 direction, glm::vec3 up) 

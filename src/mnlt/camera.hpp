@@ -20,10 +20,18 @@ namespace mnlt
             const glm::mat4& getProjection() const { return projectionMatrix; }
             const glm::mat4& getView() const { return viewMatrix; }
             const glm::mat4& getInverseView() const { return inverseViewMatrix; }
+            const glm::vec3 getPosition() const { return glm::vec3(inverseViewMatrix[3]); }
+
+            float getNear() {return near;}
+            float getFar() {return far;}
+            int gridSize{1};
+            bool enableGrid{false};
 
         private:
             glm::mat4 projectionMatrix{1.f};
             glm::mat4 viewMatrix{1.f};
             glm::mat4 inverseViewMatrix{1.f};
+            float near{0.1};
+            float far{100};
     };
 } 

@@ -1,7 +1,6 @@
 #include "ui.hpp"
 
 #include "device.hpp"
-#include "frame_info.hpp"
 #include "game_object.hpp"
 #include "window.hpp"
 
@@ -105,14 +104,17 @@ namespace mnlt
             ImGui::End();
         }
     }
-    void UI::runExample(GameObject::Map* gameObjects) 
+    void UI::runExample(FrameInfo frameInfo) 
     {
         if (show_debug_window) ImGui::ShowMetricsWindow(&show_debug_window);
 
         ImGui::Begin("UI");  // Create a window called "Hello, world!" and append into it.
         ImGui::Checkbox("Debug Window", &show_debug_window);  // Edit bools storing our window open/close state
+        ImGui::Text("Camera:");
+        ImGui::Checkbox("Enable Grid", &frameInfo.camera.enableGrid);  // Edit bools storing our window open/close state
+        ImGui::DragInt("Intensity", &frameInfo.camera.gridSize);
         ImGui::Text("GameObjects:");
-        for (auto& obj : *gameObjects)
+        for (auto& obj : frameInfo.gameObjects)
         {
             if(ImGui::Button(obj.second.name.c_str()))
             {

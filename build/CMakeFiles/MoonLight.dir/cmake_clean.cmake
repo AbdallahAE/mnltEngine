@@ -31,6 +31,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MoonLight.dir/src/mnlt/model.cpp.o.d"
   "CMakeFiles/MoonLight.dir/src/mnlt/pipeline.cpp.o"
   "CMakeFiles/MoonLight.dir/src/mnlt/pipeline.cpp.o.d"
+  "CMakeFiles/MoonLight.dir/src/mnlt/render_systems/3d_grid_system.cpp.o"
+  "CMakeFiles/MoonLight.dir/src/mnlt/render_systems/3d_grid_system.cpp.o.d"
   "CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o"
   "CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o.d"
   "CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o"

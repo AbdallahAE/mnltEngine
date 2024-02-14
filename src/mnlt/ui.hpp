@@ -31,7 +31,7 @@ namespace mnlt
 
             // Example state
             bool show_debug_window = false;
-            void runExample(GameObject::Map* gameObjects);
+            void runExample(FrameInfo frameInfo);
 
         private:
             void showGameObjectWindow(GameObject *gameObject);

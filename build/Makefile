@@ -526,6 +526,30 @@ src/mnlt/pipeline.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/pipeline.cpp.s
 .PHONY : src/mnlt/pipeline.cpp.s
 
+src/mnlt/render_systems/3d_grid_system.o: src/mnlt/render_systems/3d_grid_system.cpp.o
+.PHONY : src/mnlt/render_systems/3d_grid_system.o
+
+# target to build an object file
+src/mnlt/render_systems/3d_grid_system.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/render_systems/3d_grid_system.cpp.o
+.PHONY : src/mnlt/render_systems/3d_grid_system.cpp.o
+
+src/mnlt/render_systems/3d_grid_system.i: src/mnlt/render_systems/3d_grid_system.cpp.i
+.PHONY : src/mnlt/render_systems/3d_grid_system.i
+
+# target to preprocess a source file
+src/mnlt/render_systems/3d_grid_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/render_systems/3d_grid_system.cpp.i
+.PHONY : src/mnlt/render_systems/3d_grid_system.cpp.i
+
+src/mnlt/render_systems/3d_grid_system.s: src/mnlt/render_systems/3d_grid_system.cpp.s
+.PHONY : src/mnlt/render_systems/3d_grid_system.s
+
+# target to generate assembly for a file
+src/mnlt/render_systems/3d_grid_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/render_systems/3d_grid_system.cpp.s
+.PHONY : src/mnlt/render_systems/3d_grid_system.cpp.s
+
 src/mnlt/render_systems/point_light_system.o: src/mnlt/render_systems/point_light_system.cpp.o
 .PHONY : src/mnlt/render_systems/point_light_system.o
 
@@ -728,6 +752,9 @@ help:
 	@echo "... src/mnlt/pipeline.o"
 	@echo "... src/mnlt/pipeline.i"
 	@echo "... src/mnlt/pipeline.s"
+	@echo "... src/mnlt/render_systems/3d_grid_system.o"
+	@echo "... src/mnlt/render_systems/3d_grid_system.i"
+	@echo "... src/mnlt/render_systems/3d_grid_system.s"
 	@echo "... src/mnlt/render_systems/point_light_system.o"
 	@echo "... src/mnlt/render_systems/point_light_system.i"
 	@echo "... src/mnlt/render_systems/point_light_system.s"

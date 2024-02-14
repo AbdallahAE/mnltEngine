@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/abdallah/Dev/mnltEngine/shaders/grid_system.frag.spv"
+  "/home/abdallah/Dev/mnltEngine/shaders/grid_system.vert.spv"
   "/home/abdallah/Dev/mnltEngine/shaders/point_light.frag.spv"
   "/home/abdallah/Dev/mnltEngine/shaders/point_light.vert.spv"
   "/home/abdallah/Dev/mnltEngine/shaders/simple_shader.frag.spv"
