@@ -1152,6 +1152,7 @@ CMakeFiles/MoonLight.dir/src/main.cpp.o
  /home/abdallah/Dev/mnltEngine/src/mnlt/model.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/renderer.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/swap_chain.hpp
+ /home/abdallah/Dev/mnltEngine/src/mnlt/time.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/window.hpp
  /usr/include/GL/gl.h
  /usr/include/GL/glext.h
@@ -1252,6 +1253,7 @@ CMakeFiles/MoonLight.dir/src/main.cpp.o
  /usr/include/c++/13.2.1/bits/basic_string.tcc
  /usr/include/c++/13.2.1/bits/char_traits.h
  /usr/include/c++/13.2.1/bits/charconv.h
+ /usr/include/c++/13.2.1/bits/chrono.h
  /usr/include/c++/13.2.1/bits/concept_check.h
  /usr/include/c++/13.2.1/bits/cpp_type_traits.h
  /usr/include/c++/13.2.1/bits/cxxabi_forced.h
@@ -1282,6 +1284,7 @@ CMakeFiles/MoonLight.dir/src/main.cpp.o
  /usr/include/c++/13.2.1/bits/node_handle.h
  /usr/include/c++/13.2.1/bits/ostream.tcc
  /usr/include/c++/13.2.1/bits/ostream_insert.h
+ /usr/include/c++/13.2.1/bits/parse_numbers.h
  /usr/include/c++/13.2.1/bits/postypes.h
  /usr/include/c++/13.2.1/bits/predefined_ops.h
  /usr/include/c++/13.2.1/bits/ptr_traits.h
@@ -1319,6 +1322,7 @@ CMakeFiles/MoonLight.dir/src/main.cpp.o
  /usr/include/c++/13.2.1/cctype
  /usr/include/c++/13.2.1/cerrno
  /usr/include/c++/13.2.1/cfloat
+ /usr/include/c++/13.2.1/chrono
  /usr/include/c++/13.2.1/climits
  /usr/include/c++/13.2.1/clocale
  /usr/include/c++/13.2.1/cmath
@@ -1326,6 +1330,7 @@ CMakeFiles/MoonLight.dir/src/main.cpp.o
  /usr/include/c++/13.2.1/cstdint
  /usr/include/c++/13.2.1/cstdio
  /usr/include/c++/13.2.1/cstdlib
+ /usr/include/c++/13.2.1/ctime
  /usr/include/c++/13.2.1/cwchar
  /usr/include/c++/13.2.1/cwctype
  /usr/include/c++/13.2.1/debug/assertions.h
@@ -1350,6 +1355,7 @@ CMakeFiles/MoonLight.dir/src/main.cpp.o
  /usr/include/c++/13.2.1/pstl/execution_defs.h
  /usr/include/c++/13.2.1/pstl/glue_memory_defs.h
  /usr/include/c++/13.2.1/pstl/pstl_config.h
+ /usr/include/c++/13.2.1/ratio
  /usr/include/c++/13.2.1/stdexcept
  /usr/include/c++/13.2.1/streambuf
  /usr/include/c++/13.2.1/string
@@ -1589,6 +1595,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/app.cpp.o
  /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/simple_render_system.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/renderer.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/swap_chain.hpp
+ /home/abdallah/Dev/mnltEngine/src/mnlt/time.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/ui.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/window.hpp
  /usr/include/GL/gl.h
@@ -4174,6 +4181,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/3d_grid_system.cpp.o
  /home/abdallah/Dev/mnltEngine/src/mnlt/game_object.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/model.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/pipeline.hpp
+ /home/abdallah/Dev/mnltEngine/src/mnlt/time.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/window.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/3d_grid_system.hpp
  /usr/include/GL/gl.h
@@ -4272,6 +4280,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/3d_grid_system.cpp.o
  /usr/include/c++/13.2.1/bits/basic_string.tcc
  /usr/include/c++/13.2.1/bits/char_traits.h
  /usr/include/c++/13.2.1/bits/charconv.h
+ /usr/include/c++/13.2.1/bits/chrono.h
  /usr/include/c++/13.2.1/bits/concept_check.h
  /usr/include/c++/13.2.1/bits/cpp_type_traits.h
  /usr/include/c++/13.2.1/bits/cxxabi_forced.h
@@ -4295,6 +4304,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/3d_grid_system.cpp.o
  /usr/include/c++/13.2.1/bits/new_allocator.h
  /usr/include/c++/13.2.1/bits/node_handle.h
  /usr/include/c++/13.2.1/bits/ostream_insert.h
+ /usr/include/c++/13.2.1/bits/parse_numbers.h
  /usr/include/c++/13.2.1/bits/postypes.h
  /usr/include/c++/13.2.1/bits/predefined_ops.h
  /usr/include/c++/13.2.1/bits/ptr_traits.h
@@ -4330,6 +4340,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/3d_grid_system.cpp.o
  /usr/include/c++/13.2.1/cctype
  /usr/include/c++/13.2.1/cerrno
  /usr/include/c++/13.2.1/cfloat
+ /usr/include/c++/13.2.1/chrono
  /usr/include/c++/13.2.1/climits
  /usr/include/c++/13.2.1/clocale
  /usr/include/c++/13.2.1/cmath
@@ -4337,6 +4348,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/3d_grid_system.cpp.o
  /usr/include/c++/13.2.1/cstdint
  /usr/include/c++/13.2.1/cstdio
  /usr/include/c++/13.2.1/cstdlib
+ /usr/include/c++/13.2.1/ctime
  /usr/include/c++/13.2.1/cwchar
  /usr/include/c++/13.2.1/debug/assertions.h
  /usr/include/c++/13.2.1/debug/debug.h
@@ -4356,6 +4368,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/3d_grid_system.cpp.o
  /usr/include/c++/13.2.1/pstl/execution_defs.h
  /usr/include/c++/13.2.1/pstl/glue_memory_defs.h
  /usr/include/c++/13.2.1/pstl/pstl_config.h
+ /usr/include/c++/13.2.1/ratio
  /usr/include/c++/13.2.1/stdexcept
  /usr/include/c++/13.2.1/string
  /usr/include/c++/13.2.1/string_view
@@ -4579,6 +4592,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o
  /home/abdallah/Dev/mnltEngine/src/mnlt/game_object.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/model.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/pipeline.hpp
+ /home/abdallah/Dev/mnltEngine/src/mnlt/time.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/window.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/point_light_system.hpp
  /usr/include/GL/gl.h
@@ -4677,6 +4691,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o
  /usr/include/c++/13.2.1/bits/basic_string.tcc
  /usr/include/c++/13.2.1/bits/char_traits.h
  /usr/include/c++/13.2.1/bits/charconv.h
+ /usr/include/c++/13.2.1/bits/chrono.h
  /usr/include/c++/13.2.1/bits/concept_check.h
  /usr/include/c++/13.2.1/bits/cpp_type_traits.h
  /usr/include/c++/13.2.1/bits/cxxabi_forced.h
@@ -4700,6 +4715,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o
  /usr/include/c++/13.2.1/bits/new_allocator.h
  /usr/include/c++/13.2.1/bits/node_handle.h
  /usr/include/c++/13.2.1/bits/ostream_insert.h
+ /usr/include/c++/13.2.1/bits/parse_numbers.h
  /usr/include/c++/13.2.1/bits/postypes.h
  /usr/include/c++/13.2.1/bits/predefined_ops.h
  /usr/include/c++/13.2.1/bits/ptr_traits.h
@@ -4735,6 +4751,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o
  /usr/include/c++/13.2.1/cctype
  /usr/include/c++/13.2.1/cerrno
  /usr/include/c++/13.2.1/cfloat
+ /usr/include/c++/13.2.1/chrono
  /usr/include/c++/13.2.1/climits
  /usr/include/c++/13.2.1/clocale
  /usr/include/c++/13.2.1/cmath
@@ -4742,6 +4759,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o
  /usr/include/c++/13.2.1/cstdint
  /usr/include/c++/13.2.1/cstdio
  /usr/include/c++/13.2.1/cstdlib
+ /usr/include/c++/13.2.1/ctime
  /usr/include/c++/13.2.1/cwchar
  /usr/include/c++/13.2.1/debug/assertions.h
  /usr/include/c++/13.2.1/debug/debug.h
@@ -4761,6 +4779,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/point_light_system.cpp.o
  /usr/include/c++/13.2.1/pstl/execution_defs.h
  /usr/include/c++/13.2.1/pstl/glue_memory_defs.h
  /usr/include/c++/13.2.1/pstl/pstl_config.h
+ /usr/include/c++/13.2.1/ratio
  /usr/include/c++/13.2.1/stdexcept
  /usr/include/c++/13.2.1/string
  /usr/include/c++/13.2.1/string_view
@@ -4984,6 +5003,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o
  /home/abdallah/Dev/mnltEngine/src/mnlt/game_object.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/model.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/pipeline.hpp
+ /home/abdallah/Dev/mnltEngine/src/mnlt/time.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/window.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/simple_render_system.hpp
  /usr/include/GL/gl.h
@@ -5082,6 +5102,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o
  /usr/include/c++/13.2.1/bits/basic_string.tcc
  /usr/include/c++/13.2.1/bits/char_traits.h
  /usr/include/c++/13.2.1/bits/charconv.h
+ /usr/include/c++/13.2.1/bits/chrono.h
  /usr/include/c++/13.2.1/bits/concept_check.h
  /usr/include/c++/13.2.1/bits/cpp_type_traits.h
  /usr/include/c++/13.2.1/bits/cxxabi_forced.h
@@ -5105,6 +5126,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o
  /usr/include/c++/13.2.1/bits/new_allocator.h
  /usr/include/c++/13.2.1/bits/node_handle.h
  /usr/include/c++/13.2.1/bits/ostream_insert.h
+ /usr/include/c++/13.2.1/bits/parse_numbers.h
  /usr/include/c++/13.2.1/bits/postypes.h
  /usr/include/c++/13.2.1/bits/predefined_ops.h
  /usr/include/c++/13.2.1/bits/ptr_traits.h
@@ -5140,6 +5162,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o
  /usr/include/c++/13.2.1/cctype
  /usr/include/c++/13.2.1/cerrno
  /usr/include/c++/13.2.1/cfloat
+ /usr/include/c++/13.2.1/chrono
  /usr/include/c++/13.2.1/climits
  /usr/include/c++/13.2.1/clocale
  /usr/include/c++/13.2.1/cmath
@@ -5147,6 +5170,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o
  /usr/include/c++/13.2.1/cstdint
  /usr/include/c++/13.2.1/cstdio
  /usr/include/c++/13.2.1/cstdlib
+ /usr/include/c++/13.2.1/ctime
  /usr/include/c++/13.2.1/cwchar
  /usr/include/c++/13.2.1/debug/assertions.h
  /usr/include/c++/13.2.1/debug/debug.h
@@ -5166,6 +5190,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o
  /usr/include/c++/13.2.1/pstl/execution_defs.h
  /usr/include/c++/13.2.1/pstl/glue_memory_defs.h
  /usr/include/c++/13.2.1/pstl/pstl_config.h
+ /usr/include/c++/13.2.1/ratio
  /usr/include/c++/13.2.1/stdexcept
  /usr/include/c++/13.2.1/string
  /usr/include/c++/13.2.1/string_view
@@ -5839,6 +5864,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/ui.cpp.o
  /home/abdallah/Dev/mnltEngine/src/mnlt/frame_info.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/game_object.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/model.hpp
+ /home/abdallah/Dev/mnltEngine/src/mnlt/time.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/ui.hpp
  /home/abdallah/Dev/mnltEngine/src/mnlt/window.hpp
  /usr/include/GL/gl.h
@@ -5937,6 +5963,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/ui.cpp.o
  /usr/include/c++/13.2.1/bits/basic_string.tcc
  /usr/include/c++/13.2.1/bits/char_traits.h
  /usr/include/c++/13.2.1/bits/charconv.h
+ /usr/include/c++/13.2.1/bits/chrono.h
  /usr/include/c++/13.2.1/bits/concept_check.h
  /usr/include/c++/13.2.1/bits/cpp_type_traits.h
  /usr/include/c++/13.2.1/bits/cxxabi_forced.h
@@ -5960,6 +5987,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/ui.cpp.o
  /usr/include/c++/13.2.1/bits/new_allocator.h
  /usr/include/c++/13.2.1/bits/node_handle.h
  /usr/include/c++/13.2.1/bits/ostream_insert.h
+ /usr/include/c++/13.2.1/bits/parse_numbers.h
  /usr/include/c++/13.2.1/bits/postypes.h
  /usr/include/c++/13.2.1/bits/predefined_ops.h
  /usr/include/c++/13.2.1/bits/ptr_traits.h
@@ -5995,6 +6023,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/ui.cpp.o
  /usr/include/c++/13.2.1/cctype
  /usr/include/c++/13.2.1/cerrno
  /usr/include/c++/13.2.1/cfloat
+ /usr/include/c++/13.2.1/chrono
  /usr/include/c++/13.2.1/climits
  /usr/include/c++/13.2.1/clocale
  /usr/include/c++/13.2.1/cmath
@@ -6002,6 +6031,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/ui.cpp.o
  /usr/include/c++/13.2.1/cstdint
  /usr/include/c++/13.2.1/cstdio
  /usr/include/c++/13.2.1/cstdlib
+ /usr/include/c++/13.2.1/ctime
  /usr/include/c++/13.2.1/cwchar
  /usr/include/c++/13.2.1/debug/assertions.h
  /usr/include/c++/13.2.1/debug/debug.h
@@ -6021,6 +6051,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/ui.cpp.o
  /usr/include/c++/13.2.1/pstl/execution_defs.h
  /usr/include/c++/13.2.1/pstl/glue_memory_defs.h
  /usr/include/c++/13.2.1/pstl/pstl_config.h
+ /usr/include/c++/13.2.1/ratio
  /usr/include/c++/13.2.1/string
  /usr/include/c++/13.2.1/string_view
  /usr/include/c++/13.2.1/tr1/bessel_function.tcc

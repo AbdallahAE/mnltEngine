@@ -19,7 +19,7 @@ namespace mnlt
                 int look = GLFW_MOUSE_BUTTON_RIGHT;
             };
 
-            void moveInPlaneXZ(GLFWwindow* window, float dt, GameObject& gameObject);
+            void moveInPlaneXZ(GLFWwindow* window, double pureDeltaTime, GameObject& gameObject);
             void mouseLook(GLFWwindow* window, int button, int action, int mods);
 
             KeyMappings keys{};

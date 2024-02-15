@@ -110,8 +110,14 @@ namespace mnlt
 
         ImGui::Begin("UI");  // Create a window called "Hello, world!" and append into it.
         ImGui::Checkbox("Debug Window", &show_debug_window);  // Edit bools storing our window open/close state
+        ImGui::Text("Time:");
+        ImGui::Text("DeltaTime: %f" ,frameInfo.time.getDeltaTime());
+        ImGui::Text("PureDeltaTime: %f" ,frameInfo.time.getPureDeltaTime());
+        ImGui::Text("FixedDeltaTime: %f" ,frameInfo.time.getFixedDeltaTime());
+        float scale = 0;
+        ImGui::InputDouble("Time Scale", &frameInfo.time.timeScale);
         ImGui::Text("Camera:");
-        ImGui::Checkbox("Enable Grid", &frameInfo.camera.enableGrid);  // Edit bools storing our window open/close state
+        ImGui::Checkbox("Enable Grid", &frameInfo.camera.enableGrid);
         ImGui::DragInt("Intensity", &frameInfo.camera.gridSize);
         ImGui::Text("GameObjects:");
         for (auto& obj : frameInfo.gameObjects)

@@ -2,6 +2,7 @@
 
 #include "camera.hpp"
 #include "game_object.hpp"
+#include "time.hpp"
 
 // lib
 #include <vulkan/vulkan.h>
@@ -35,7 +36,7 @@ namespace mnlt
     struct FrameInfo 
     {
         int frameIndex;
-        float frameTime;
+        Time &time;
         VkCommandBuffer commandBuffer;
         Camera &camera;
         VkDescriptorSet globalDescriptorSet;

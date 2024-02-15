@@ -7,13 +7,12 @@
 #include "input_controller.hpp"
 #include "buffer.hpp"
 #include "ui.hpp"
+#include "time.hpp"
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 #include <glm/glm.hpp>
 #include <glm/gtc/constants.hpp>
-
-#include <chrono>
 
 namespace mnlt
 {
@@ -52,12 +51,9 @@ namespace mnlt
             // dt stands for delta time, and specifies the amount of time to advance the simulation
             // substeps is how many intervals to divide the forward time step in. More substeps result in a
             // more stable simulation, but takes longer to compute
-            void update(FrameInfo frameInfo, float dt, unsigned int substeps = 1) {
-                const float stepDelta = dt / substeps;
-                for (int i = 0; i < substeps; i++) 
-                {
-                    stepSimulation(&frameInfo.gameObjects, stepDelta);
-                }
+            void update(FrameInfo frameInfo) 
+            {
+                    stepSimulation(&frameInfo.gameObjects, frameInfo.time.getDeltaTime());
             }
             
             glm::vec3 computeForce(GameObject& fromObj, GameObject& toObj) const {
@@ -75,7 +71,7 @@ namespace mnlt
             }
         
         private:
-            void stepSimulation(GameObject::Map* physicsObjs, float dt) 
+            void stepSimulation(GameObject::Map* physicsObjs, float deltaTime) 
             {
                 // Loops through all pairs of objects and applies attractive force between them
                 for (auto iterA = physicsObjs->begin(); iterA != physicsObjs->end(); ++iterA) 
@@ -87,15 +83,15 @@ namespace mnlt
                         auto& objB = *iterB;
                 
                         auto force = computeForce(objA.second, objB.second);
-                        objA.second.rigidBody.velocity += dt * -force / objA.second.rigidBody.mass;
-                        objB.second.rigidBody.velocity += dt * force / objB.second.rigidBody.mass;
+                        objA.second.rigidBody.velocity += deltaTime * -force / objA.second.rigidBody.mass;
+                        objB.second.rigidBody.velocity += deltaTime * force / objB.second.rigidBody.mass;
                     }
                 }
             
                 // update each objects position based on its final velocity
                 for (auto& obj : *physicsObjs) 
                 {
-                    obj.second.transform.translation += dt * obj.second.rigidBody.velocity;
+                    obj.second.transform.translation += deltaTime * obj.second.rigidBody.velocity;
                 }
             }
     };
@@ -147,8 +143,7 @@ namespace mnlt
         PointLightSystem pointLightSystem{device, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
         GridSystem gridSystem{device, renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout()};
 
-
-        auto currentTime = std::chrono::high_resolution_clock::now();
+        Time time;
 
         GravityPhysicsSystem gravitySystem{6.674e-4f};
 
@@ -156,11 +151,9 @@ namespace mnlt
         {
             glfwPollEvents();
 
-            auto newTime = std::chrono::high_resolution_clock::now();
-            float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
-            currentTime = newTime;
+            time.update();
 
-            cameraController.moveInPlaneXZ(window.getGLFWwindow(), frameTime, viewerObject);
+            cameraController.moveInPlaneXZ(window.getGLFWwindow(), time.getPureDeltaTime(), viewerObject);
             camera.setViewYXZ(viewerObject.transform.translation, viewerObject.transform.rotation);
 
             float aspect = renderer.getAspectRatio();
@@ -169,9 +162,9 @@ namespace mnlt
             if (auto commandBuffer = renderer.beginFrame()) 
             {
                 int frameIndex = renderer.getFrameIndex();
-                FrameInfo frameInfo{frameIndex, frameTime, commandBuffer, camera, globalDescriptorSets[frameIndex], gameObjects};
+                FrameInfo frameInfo{frameIndex, time, commandBuffer, camera, globalDescriptorSets[frameIndex], gameObjects};
                                 
-                gravitySystem.update(frameInfo, 1.f / 60, 5);
+                gravitySystem.update(frameInfo);
 
                 // update
                 ubo.projection = camera.getProjection();

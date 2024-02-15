@@ -17,7 +17,7 @@ namespace mnlt
     {
         float near{0.1};
         float far{100};
-        int cordSize{1};
+        int gridSize{1};
     };
 
     GridSystem::GridSystem(Device& device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout) : device{device} 
@@ -90,7 +90,7 @@ namespace mnlt
         GridSystemPushConstants push{};
         push.near = frameInfo.camera.getNear();
         push.far = frameInfo.camera.getFar();
-        push.cordSize = frameInfo.camera.gridSize;
+        push.gridSize = frameInfo.camera.gridSize;
         vkCmdPushConstants
         (
             frameInfo.commandBuffer,

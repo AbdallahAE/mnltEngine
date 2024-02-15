@@ -7,7 +7,7 @@ namespace mnlt
 {
     double prevMouseY = 0.0;
     double prevMouseX = 0.0;
-    void CameraController::moveInPlaneXZ(GLFWwindow* window, float dt, GameObject& gameObject) 
+    void CameraController::moveInPlaneXZ(GLFWwindow* window, double pureDeltaTime, GameObject& gameObject) 
     {
         glm::vec3 rotate{0};
         
@@ -29,10 +29,10 @@ namespace mnlt
         }
         prevMouseY = mouseY;
         prevMouseX = mouseX;
-        float mouseSpeed = sqrt(deltaX * deltaX + deltaY * deltaY) / static_cast<float>(dt) * 0.001 * lookSpeed;
+        float mouseSpeed = sqrt(deltaX * deltaX + deltaY * deltaY) / static_cast<float>(pureDeltaTime) * 0.001 * lookSpeed;
 
         if (glm::dot(rotate, rotate) > std::numeric_limits<float>::epsilon()) {
-            gameObject.transform.rotation += mouseSpeed * dt * glm::normalize(rotate);
+            gameObject.transform.rotation += mouseSpeed * static_cast<float>(pureDeltaTime) * glm::normalize(rotate);
         }
 
         // limit pitch values between about +/- 85ish degrees
@@ -60,7 +60,7 @@ namespace mnlt
 
         if (glm::dot(moveDir, moveDir) > std::numeric_limits<float>::epsilon()) 
         {
-            gameObject.transform.translation += moveSpeed * dt * glm::normalize(moveDir);
+            gameObject.transform.translation += moveSpeed * static_cast<float>(pureDeltaTime) * glm::normalize(moveDir);
         }
     }
 }

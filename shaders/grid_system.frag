@@ -23,7 +23,7 @@ layout(set = 0, binding = 0) uniform GlobalUbo {
 layout(push_constant) uniform Push {
   float near;
   float far;
-  int cordSize;
+  int gridSize;
 } push;
 
 float near = push.near;
@@ -37,14 +37,12 @@ vec4 gridy(vec3 fragPos3D, float scale) {
     vec2 derivative = fwidth(coord);
     vec2 grid = abs(fract(coord - 0.5) - 0.5) / derivative;
     float line = min(grid.x, grid.y);
-    float minimumz = min(derivative.y, 1);
-    float minimumx = min(derivative.x, 1);
     vec4 color = vec4(0.1, 0.1, 0.1, 1.0 - min(line, 1.0));
     // z axis
-    if(fragPos3D.x > -0.1 * minimumx && fragPos3D.x < 0.1 * minimumx)
+    if(fragPos3D.x > -0.01 && fragPos3D.x < 0.01)
         color.z = 1.0;
     // x axis
-    if(fragPos3D.z > -0.1 * minimumz && fragPos3D.z < 0.1 * minimumz)
+    if(fragPos3D.z > -0.01 && fragPos3D.z < 0.01)
         color.x = 1.0;
     return color;
 }
@@ -53,14 +51,12 @@ vec4 gridx(vec3 fragPos3D, float scale) {
     vec2 derivative = fwidth(coord);
     vec2 grid = abs(fract(coord - 0.5) - 0.5) / derivative;
     float line = min(grid.x, grid.y);
-    float minimumz = min(derivative.y, 1);
-    float minimumx = min(derivative.x, 1);
     vec4 color = vec4(0.1, 0.1, 0.1, 1.0 - min(line, 1.0));
     // z axis
-    if(fragPos3D.y > -0.1 * minimumx && fragPos3D.y < 0.1 * minimumx)
+    if(fragPos3D.y > -0.01 && fragPos3D.y < 0.01)
         color.z = 1.0;
     // x axis
-    if(fragPos3D.z > -0.1 * minimumz && fragPos3D.z < 0.1 * minimumz)
+    if(fragPos3D.z > -0.01 && fragPos3D.z < 0.01)
         color.y = 1.0;
     return color;
 }
@@ -69,14 +65,12 @@ vec4 gridz(vec3 fragPos3D, float scale) {
     vec2 derivative = fwidth(coord);
     vec2 grid = abs(fract(coord - 0.5) - 0.5) / derivative;
     float line = min(grid.x, grid.y);
-    float minimumz = min(derivative.y, 1);
-    float minimumx = min(derivative.x, 1);
     vec4 color = vec4(0.1, 0.1, 0.1, 1.0 - min(line, 1.0));
     // z axis
-    if(fragPos3D.y > -0.1 * minimumx && fragPos3D.y < 0.1 * minimumx)
+    if(fragPos3D.y > -0.01 && fragPos3D.y < 0.01)
         color.x = 1.0;
     // x axis
-    if(fragPos3D.x > -0.1 * minimumz && fragPos3D.x < 0.1 * minimumz)
+    if(fragPos3D.x > -0.01 && fragPos3D.x < 0.01)
         color.y = 1.0;
     return color;
 }
@@ -92,5 +86,5 @@ void main() {
 
     gl_FragDepth = 0.9999999;
 
-    outColor = gridy(fragPosY, push.cordSize) * float(y > 0) + gridx(fragPosX, push.cordSize) * float(x > 0) + gridz(fragPosZ, push.cordSize) * float(z > 0);
+    outColor = gridy(fragPosY, push.gridSize) * float(y > 0) + gridx(fragPosX, push.gridSize) * float(x > 0) + gridz(fragPosZ, push.gridSize) * float(z > 0);
 }
