@@ -12,12 +12,13 @@ namespace mnlt
     class SimpleRenderSystem 
     {
         public:
-            SimpleRenderSystem(Device &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
+            SimpleRenderSystem(Device &device);
             ~SimpleRenderSystem();
 
             SimpleRenderSystem(const SimpleRenderSystem &) = delete;
             SimpleRenderSystem &operator=(const SimpleRenderSystem &) = delete;
 
+            void createRenderer(VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
             void renderGameObjects(FrameInfo &frameInfo);
 
         private:

@@ -12,14 +12,14 @@ namespace mnlt
     class PointLightSystem
     {
         public:
-            PointLightSystem(Device &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
+            PointLightSystem(Device &device);
             ~PointLightSystem();
 
             PointLightSystem(const PointLightSystem &) = delete;
             PointLightSystem &operator=(const PointLightSystem &) = delete;
 
-            void update(FrameInfo &frameInfo, GlobalUbo &ubo);
-            void render(FrameInfo &frameInfo);
+            void createRenderer(VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
+            void renderLights(FrameInfo &frameInfo, GlobalUbo &ubo);
 
         private:
             void createPipelineLayout(VkDescriptorSetLayout globalSetLayout);

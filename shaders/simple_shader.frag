@@ -61,17 +61,15 @@ void main() {
     specularLight += intensity * blinnTerm;
   }
 
-  {
-    vec3 directionToLight = normalize(ubo.directionLight.position.xyz);
-    float cosAngIncidence = max(dot(normalize(fragNormalWorld), directionToLight), 0);
-    sunLight += sunLightColor * cosAngIncidence;
-    // specular lighting
-    vec3 halfAngle = normalize(directionToLight + viewDirection);
-    float blinnTerm = dot(normalize(fragNormalWorld), halfAngle);
-    blinnTerm = clamp(blinnTerm, 0, 1);
-    blinnTerm = pow(blinnTerm, 512.0); // higher values -> sharper highlight
-    specularLight += sunLightColor * blinnTerm;
-  }
+  vec3 directionToLight = normalize(ubo.directionLight.position.xyz);
+  float cosAngIncidence = max(dot(normalize(fragNormalWorld), directionToLight), 0);
+  sunLight += sunLightColor * cosAngIncidence;
+  // specular lighting
+  vec3 halfAngle = normalize(directionToLight + viewDirection);
+  float blinnTerm = dot(normalize(fragNormalWorld), halfAngle);
+  blinnTerm = clamp(blinnTerm, 0, 1);
+  blinnTerm = pow(blinnTerm, 512.0); // higher values -> sharper highlight
+  specularLight += sunLightColor * blinnTerm;
 
   outColor = vec4(((diffuseLight + ambientLight + sunLight) * fragColor) + (specularLight * fragColor), 1.0);
 }

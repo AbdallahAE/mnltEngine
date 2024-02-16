@@ -40,6 +40,5 @@ namespace mnlt
             double deltaTime;
             double pureDeltaTime;
             double fixedDeltaTime;
-             // Used to modify deltaTime
     };
 }

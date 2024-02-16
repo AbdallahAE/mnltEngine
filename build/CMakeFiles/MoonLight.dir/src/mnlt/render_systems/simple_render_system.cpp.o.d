@@ -127,6 +127,9 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o: \
  /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../pipeline.hpp \
  /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../frame_info.hpp \
  /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../camera.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../game_object.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../model.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../buffer.hpp \
  /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
  /usr/include/c++/13.2.1/cmath /usr/include/math.h \
  /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
@@ -268,11 +271,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o: \
  /usr/include/glm/packing.hpp /usr/include/glm/detail/func_packing.inl \
  /usr/include/glm/detail/type_half.hpp \
  /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
- /usr/include/glm/detail/func_integer.inl \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../game_object.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../model.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../buffer.hpp \
- /usr/include/c++/13.2.1/memory \
+ /usr/include/glm/detail/func_integer.inl /usr/include/c++/13.2.1/memory \
  /usr/include/c++/13.2.1/bits/stl_tempbuf.h \
  /usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h \
  /usr/include/c++/13.2.1/bits/align.h \

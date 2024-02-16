@@ -1,9 +1,13 @@
-CMakeFiles/MoonLight.dir/src/mnlt/render_systems/3d_grid_system.cpp.o: \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/3d_grid_system.cpp \
+CMakeFiles/MoonLight.dir/src/test_app.cpp.o: \
+ /home/abdallah/Dev/mnltEngine/src/test_app.cpp \
  /usr/include/stdc-predef.h \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/3d_grid_system.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../device.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../window.hpp \
+ /home/abdallah/Dev/mnltEngine/src/test_app.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/app.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/camera.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/game_object.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/model.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/device.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/window.hpp \
  /usr/include/GLFW/glfw3.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stddef.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdint.h \
@@ -124,12 +128,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/3d_grid_system.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_vector.h \
  /usr/include/c++/13.2.1/bits/stl_bvector.h \
  /usr/include/c++/13.2.1/bits/vector.tcc \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../pipeline.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../frame_info.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../camera.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../game_object.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../model.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../buffer.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/buffer.hpp \
  /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
  /usr/include/c++/13.2.1/cmath /usr/include/math.h \
  /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
@@ -322,8 +321,16 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/3d_grid_system.cpp.o: \
  /usr/include/c++/13.2.1/bits/enable_special_members.h \
  /usr/include/c++/13.2.1/bits/node_handle.h \
  /usr/include/c++/13.2.1/bits/erase_if.h \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../time.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/frame_info.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/time.hpp \
  /usr/include/c++/13.2.1/chrono /usr/include/c++/13.2.1/bits/chrono.h \
  /usr/include/c++/13.2.1/ratio /usr/include/c++/13.2.1/ctime \
  /usr/include/c++/13.2.1/bits/parse_numbers.h \
- /usr/include/c++/13.2.1/stdexcept
+ /home/abdallah/Dev/mnltEngine/src/mnlt/renderer.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/swap_chain.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/descriptors.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/3d_grid_system.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../pipeline.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/point_light_system.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/simple_render_system.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/ui.hpp

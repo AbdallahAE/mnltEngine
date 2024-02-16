@@ -1,5 +1,6 @@
 #pragma once
 
+#include "camera.hpp"
 #include "frame_info.hpp"
 #include "window.hpp"
 #include "device.hpp"
@@ -23,16 +24,19 @@ namespace mnlt
 
             void run();
 
-        private:
-            void loadGameObjects();
-            void loadPhysics();
+        protected:
+            virtual void start() = 0;
+            virtual void renderSystems(VkCommandBuffer commandBuffer, FrameInfo frameInfo) = 0;
+            virtual void update(Time time) = 0;
 
             Window window{WIDTH, HEIGHT, "MoonLight"};
             Device device{window};
             Renderer renderer{window, device};
+            Camera camera{};
+            std::unique_ptr<DescriptorSetLayout> globalSetLayout;
 
             // note: order of declarations matters
-            std::unique_ptr<DescriptorPool> globalPool{};
+            std::unique_ptr<DescriptorPool> globalPool;
             GlobalUbo ubo;
             GameObject::Map gameObjects;
     };

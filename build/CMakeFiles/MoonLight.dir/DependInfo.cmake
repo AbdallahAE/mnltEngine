@@ -31,6 +31,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/abdallah/Dev/mnltEngine/src/mnlt/swap_chain.cpp" "CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.o" "gcc" "CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.o.d"
   "/home/abdallah/Dev/mnltEngine/src/mnlt/ui.cpp" "CMakeFiles/MoonLight.dir/src/mnlt/ui.cpp.o" "gcc" "CMakeFiles/MoonLight.dir/src/mnlt/ui.cpp.o.d"
   "/home/abdallah/Dev/mnltEngine/src/mnlt/window.cpp" "CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o" "gcc" "CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o.d"
+  "/home/abdallah/Dev/mnltEngine/src/test_app.cpp" "CMakeFiles/MoonLight.dir/src/test_app.cpp.o" "gcc" "CMakeFiles/MoonLight.dir/src/test_app.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -6,13 +6,25 @@
 
 #include "../../libs/imgui/imgui_impl_glfw.h"
 #include "../../libs/imgui/imgui_impl_vulkan.h"
+#include "../../libs/imgui/imgui.h"
 
 namespace mnlt
 {
     // ok this just initializes imgui using the provided integration files. So in our case we need to
     // initialize the vulkan and glfw imgui implementations, since that's what our engine is built
     // using.
-    UI::UI(Window &window, Device &device, VkRenderPass renderPass, uint32_t imageCount, VkDescriptorPool descriptorPool) : device{device} 
+    UI::UI(Window &window, Device &device) : window{window}, device{device}
+    {
+        
+    }
+    UI::~UI() 
+    {
+        ImGui_ImplVulkan_Shutdown();
+        ImGui_ImplGlfw_Shutdown();
+        ImGui::DestroyContext();
+    }
+    
+    void UI::initialize(VkRenderPass renderPass, uint32_t imageCount, VkDescriptorPool descriptorPool)
     {
         // Setup Dear ImGui context
         IMGUI_CHECKVERSION();
@@ -20,7 +32,6 @@ namespace mnlt
         ImGuiIO &io = ImGui::GetIO();
         (void)io;
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-        // io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 
         // Setup Dear ImGui style
         ImGui::StyleColorsDark();
@@ -55,13 +66,6 @@ namespace mnlt
         device.endSingleTimeCommands(commandBuffer);
         ImGui_ImplVulkan_DestroyFontsTexture();
     }
-    UI::~UI() 
-    {
-        ImGui_ImplVulkan_Shutdown();
-        ImGui_ImplGlfw_Shutdown();
-        ImGui::DestroyContext();
-    }
-    
     void UI::newFrame() 
     {
         ImGui_ImplVulkan_NewFrame();

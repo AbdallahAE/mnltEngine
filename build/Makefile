@@ -694,6 +694,30 @@ src/mnlt/window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.s
 .PHONY : src/mnlt/window.cpp.s
 
+src/test_app.o: src/test_app.cpp.o
+.PHONY : src/test_app.o
+
+# target to build an object file
+src/test_app.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/test_app.cpp.o
+.PHONY : src/test_app.cpp.o
+
+src/test_app.i: src/test_app.cpp.i
+.PHONY : src/test_app.i
+
+# target to preprocess a source file
+src/test_app.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/test_app.cpp.i
+.PHONY : src/test_app.cpp.i
+
+src/test_app.s: src/test_app.cpp.s
+.PHONY : src/test_app.s
+
+# target to generate assembly for a file
+src/test_app.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/test_app.cpp.s
+.PHONY : src/test_app.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -773,6 +797,9 @@ help:
 	@echo "... src/mnlt/window.o"
 	@echo "... src/mnlt/window.i"
 	@echo "... src/mnlt/window.s"
+	@echo "... src/test_app.o"
+	@echo "... src/test_app.i"
+	@echo "... src/test_app.s"
 .PHONY : help
 
 

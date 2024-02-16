@@ -19,10 +19,9 @@ namespace mnlt
         glm::vec3 color{1.f};
     };
 
-    SimpleRenderSystem::SimpleRenderSystem(Device& device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout) : device{device} 
+    SimpleRenderSystem::SimpleRenderSystem(Device& device) : device{device} 
     {
-        createPipelineLayout(globalSetLayout);
-        createPipeline(renderPass);
+        
     }
     SimpleRenderSystem::~SimpleRenderSystem() 
     {
@@ -65,6 +64,12 @@ namespace mnlt
             "shaders/simple_shader.frag.spv",
             pipelineConfig
         );
+    }
+
+    void SimpleRenderSystem::createRenderer(VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout)
+    {
+        createPipelineLayout(globalSetLayout);
+        createPipeline(renderPass);
     }
 
     void SimpleRenderSystem::renderGameObjects(FrameInfo& frameInfo)

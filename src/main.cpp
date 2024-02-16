@@ -1,15 +1,15 @@
-#include "mnlt/app.hpp"
+#include "test_app.hpp"
 
 #include <iostream>
 
 
 int main()
 {
-    mnlt::App app{};
+    TestApp testApp{};
 
     try
     {
-        app.run();
+        testApp.run();
     } 
     catch (const std::exception &e)
     {

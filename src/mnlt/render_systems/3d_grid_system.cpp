@@ -20,12 +20,10 @@ namespace mnlt
         int gridSize{1};
     };
 
-    GridSystem::GridSystem(Device& device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout) : device{device} 
+    GridSystem::GridSystem(Device& device) : device{device} 
     {
-        createPipelineLayout(globalSetLayout);
-        createPipeline(renderPass);
+        
     }
-
     GridSystem::~GridSystem()
     {
         vkDestroyPipelineLayout(device.device(), pipelineLayout, nullptr);
@@ -69,6 +67,12 @@ namespace mnlt
             "shaders/grid_system.frag.spv",
             pipelineConfig
         );
+    }
+
+    void GridSystem::createRenderer(VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout)
+    {
+        createPipelineLayout(globalSetLayout);
+        createPipeline(renderPass);
     }
 
     void GridSystem::render(FrameInfo& frameInfo)

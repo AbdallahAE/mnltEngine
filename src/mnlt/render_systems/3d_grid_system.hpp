@@ -12,12 +12,13 @@ namespace mnlt
     class GridSystem 
     {
         public:
-            GridSystem(Device &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
+            GridSystem(Device &device);
             ~GridSystem();
 
             GridSystem(const GridSystem &) = delete;
             GridSystem &operator=(const GridSystem &) = delete;
 
+            void createRenderer(VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
             void render(FrameInfo &frameInfo);
 
         private:

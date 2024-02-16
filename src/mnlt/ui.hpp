@@ -4,12 +4,7 @@
 #include "frame_info.hpp"
 #include "window.hpp"
 
-// libs
-#include "../../libs/imgui/imgui.h"
-
-// This whole class is only necessary right now because it needs to manage the descriptor pool
-// because we haven't set one up anywhere else in the application, and we manage the
-// example state, otherwise all the functions could just be static helper functions if you prefered
+// could make functions static helper functions
 namespace mnlt
 {
     static void check_vk_result(VkResult err) 
@@ -22,19 +17,21 @@ namespace mnlt
     class UI
     {
         public:
-            UI(Window &window, Device &device, VkRenderPass renderPass, uint32_t imageCount, VkDescriptorPool descriptorPool);
+            UI(Window &window, Device &device);
             ~UI();
+
+            void initialize(VkRenderPass renderPass, uint32_t imageCount, VkDescriptorPool descriptorPool);
 
             void newFrame();
 
             void render(VkCommandBuffer commandBuffer);
 
-            // Example state
             bool show_debug_window = false;
             void runExample(FrameInfo frameInfo);
 
         private:
             void showGameObjectWindow(GameObject *gameObject);
             Device &device;
+            Window &window;
     };
 }
