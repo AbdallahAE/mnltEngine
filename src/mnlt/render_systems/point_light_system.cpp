@@ -89,6 +89,10 @@ namespace mnlt
             nullptr
         );
 
+
+        //auto rotateLight = glm::rotate(glm::mat4(1.f), 0.5f * (float)frameInfo.time.getDeltaTime(), {0.f, -1.f, 0.f});
+        int lightIndex = 0;
+
         for (auto& kv : frameInfo.gameObjects) 
         {
             auto& obj = kv.second;
@@ -107,14 +111,7 @@ namespace mnlt
                 sizeof(PointLightPushConstants),
                 &push);
             vkCmdDraw(frameInfo.commandBuffer, 6, 1, 0, 0);
-        }
 
-        auto rotateLight = glm::rotate(glm::mat4(1.f), 0.5f * (float)frameInfo.time.getDeltaTime(), {0.f, -1.f, 0.f});
-        int lightIndex = 0;
-        for (auto& kv : frameInfo.gameObjects) 
-        {
-            auto& obj = kv.second;
-            if (obj.pointLight == nullptr) continue;
 
             assert(lightIndex < MAX_LIGHTS && "Point lights exceed maximum specified");
 
@@ -127,6 +124,7 @@ namespace mnlt
 
             lightIndex += 1;
         }
+        
         ubo.numLights = lightIndex;
     }
 }

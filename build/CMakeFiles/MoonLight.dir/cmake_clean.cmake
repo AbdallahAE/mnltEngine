@@ -45,6 +45,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MoonLight.dir/src/mnlt/ui.cpp.o.d"
   "CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o"
   "CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.o.d"
+  "CMakeFiles/MoonLight.dir/src/particle_life.cpp.o"
+  "CMakeFiles/MoonLight.dir/src/particle_life.cpp.o.d"
   "CMakeFiles/MoonLight.dir/src/test_app.cpp.o"
   "CMakeFiles/MoonLight.dir/src/test_app.cpp.o.d"
   "MoonLight"

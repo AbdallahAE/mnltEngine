@@ -1,15 +1,16 @@
 #include "test_app.hpp"
+#include "particle_life.hpp"
 
 #include <iostream>
 
 
 int main()
 {
-    TestApp testApp{};
+    PartcleLife particleLife{};
 
     try
     {
-        testApp.run();
+        particleLife.run();
     } 
     catch (const std::exception &e)
     {

@@ -82,12 +82,12 @@ clean: CMakeFiles/Shaders.dir/clean
 CMakeFiles/MoonLight.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25 "Built target MoonLight"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26 "Built target MoonLight"
 .PHONY : CMakeFiles/MoonLight.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MoonLight.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abdallah/Dev/mnltEngine/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abdallah/Dev/mnltEngine/build/CMakeFiles 26
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MoonLight.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/abdallah/Dev/mnltEngine/build/CMakeFiles 0
 .PHONY : CMakeFiles/MoonLight.dir/rule
@@ -108,7 +108,7 @@ CMakeFiles/MoonLight.dir/clean:
 CMakeFiles/Shaders.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shaders.dir/build.make CMakeFiles/Shaders.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shaders.dir/build.make CMakeFiles/Shaders.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=26,27,28,29,30,31 "Built target Shaders"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/abdallah/Dev/mnltEngine/build/CMakeFiles --progress-num=27,28,29,30,31,32 "Built target Shaders"
 .PHONY : CMakeFiles/Shaders.dir/all
 
 # Build rule for subdir invocation for target.

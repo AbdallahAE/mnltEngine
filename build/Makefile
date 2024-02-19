@@ -694,6 +694,30 @@ src/mnlt/window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/window.cpp.s
 .PHONY : src/mnlt/window.cpp.s
 
+src/particle_life.o: src/particle_life.cpp.o
+.PHONY : src/particle_life.o
+
+# target to build an object file
+src/particle_life.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/particle_life.cpp.o
+.PHONY : src/particle_life.cpp.o
+
+src/particle_life.i: src/particle_life.cpp.i
+.PHONY : src/particle_life.i
+
+# target to preprocess a source file
+src/particle_life.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/particle_life.cpp.i
+.PHONY : src/particle_life.cpp.i
+
+src/particle_life.s: src/particle_life.cpp.s
+.PHONY : src/particle_life.s
+
+# target to generate assembly for a file
+src/particle_life.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/particle_life.cpp.s
+.PHONY : src/particle_life.cpp.s
+
 src/test_app.o: src/test_app.cpp.o
 .PHONY : src/test_app.o
 
@@ -797,6 +821,9 @@ help:
 	@echo "... src/mnlt/window.o"
 	@echo "... src/mnlt/window.i"
 	@echo "... src/mnlt/window.s"
+	@echo "... src/particle_life.o"
+	@echo "... src/particle_life.i"
+	@echo "... src/particle_life.s"
 	@echo "... src/test_app.o"
 	@echo "... src/test_app.i"
 	@echo "... src/test_app.s"

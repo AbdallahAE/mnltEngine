@@ -72,7 +72,7 @@ namespace mnlt
         setViewDirection(position, target - position, up);
     }
 
-    void Camera::setViewYXZ() 
+    void Camera::updateView() 
     {
         const float c3 = glm::cos(viewerObject.transform.rotation.z);
         const float s3 = glm::sin(viewerObject.transform.rotation.z);
@@ -112,7 +112,7 @@ namespace mnlt
         inverseViewMatrix[3][2] = viewerObject.transform.translation.z;
     }
 
-    void Camera::moveInPlaneXZ(GLFWwindow* window, double pureDeltaTime) 
+    void Camera::move(GLFWwindow* window, double pureDeltaTime) 
     {
         glm::vec3 rotate{0};
         
@@ -124,9 +124,9 @@ namespace mnlt
         {
             glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
             if(deltaY != 0)
-                rotate.x += deltaY;
+                rotate.x -= deltaY;
             if(deltaX != 0)
-                rotate.y -= deltaX;
+                rotate.y += deltaX;
         }
         if(glfwGetMouseButton(window, keys.look) == GLFW_RELEASE)
         {
@@ -167,5 +167,6 @@ namespace mnlt
         {
             viewerObject.transform.translation += moveSpeed * static_cast<float>(pureDeltaTime) * glm::normalize(moveDir);
         }
+        updateView();
     }
 } 

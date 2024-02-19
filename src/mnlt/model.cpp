@@ -219,5 +219,5 @@ namespace mnlt
                 indices.push_back(uniqueVertices[vertex]);
             }
         }
-        }
+    }
 }

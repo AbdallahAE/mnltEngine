@@ -1,4 +1,5 @@
 #include "test_app.hpp"
+#include "mnlt/game_object.hpp"
 
 class GravityPhysicsSystem
 {
@@ -58,13 +59,15 @@ class GravityPhysicsSystem
 GravityPhysicsSystem gravitySystem{6.674e-4f};
 void TestApp::start()
 {
+    camera.setPerspectiveProjection(glm::radians(50.f), renderer.getAspectRatio(), 0.1f, 1000.f);
+
     ui.initialize(renderer.getSwapChainRenderPass(), renderer.getImageCount(), globalPool->getDescriptorPool());
     simpleRenderSystem.createRenderer(renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout());
     pointLightSystem.createRenderer(renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout());
     gridSystem.createRenderer(renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout());
-    
-    //loadGameObjects();
-    loadPhysics();
+
+    loadGameObjects();
+    //loadPhysics();
 }
 void TestApp::renderSystems(VkCommandBuffer commandBuffer, mnlt::FrameInfo frameInfo)
 {
@@ -78,11 +81,11 @@ void TestApp::renderSystems(VkCommandBuffer commandBuffer, mnlt::FrameInfo frame
 }
 void TestApp::update(mnlt::Time time)
 {
-    camera.moveInPlaneXZ(window.getGLFWwindow(), time.getPureDeltaTime());
-    camera.setViewYXZ();
-    float aspect = renderer.getAspectRatio();
-    camera.setPerspectiveProjection(glm::radians(50.f), aspect, 0.1f, 1000.f);
-    gravitySystem.update(&gameObjects, time, 100);
+    if(window.wasWindowResized())
+        camera.setPerspectiveProjection(glm::radians(50.f), renderer.getAspectRatio(), 0.1f, 1000.f);
+    camera.move(window.getGLFWwindow(), time.getPureDeltaTime());
+    
+    //gravitySystem.update(&gameObjects, time, 100);
 }
 
 
@@ -153,6 +156,13 @@ void TestApp::loadGameObjects()
     floor.transform.scale = {3.0f, 1.0f, 3.0f};
     floor.name = "floor";
     gameObjects.emplace(floor.getId(), std::move(floor));
+    model = mnlt::Model::createModelFromFile(device, "assets/models/viking_room.obj");
+    auto viking = mnlt::GameObject::createGameObject();
+    viking.model = model;
+    viking.transform.translation = {-5.f, 0.0f, 0.0f};
+    viking.transform.scale = {1.0f, 1.0f, 1.0f};
+    viking.name = "viking";
+    gameObjects.emplace(viking.getId(), std::move(viking));
     std::vector<glm::vec3> lightColors
     {
         {1.f, .1f, .1f},
