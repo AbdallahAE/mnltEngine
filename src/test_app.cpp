@@ -60,7 +60,7 @@ GravityPhysicsSystem gravitySystem{6.674e-4f};
 void TestApp::start()
 {
     camera.setPerspectiveProjection(glm::radians(50.f), renderer.getAspectRatio(), 0.1f, 1000.f);
-
+    //camera.setOrthographicProjection(-10, 10, -10, 10, 0.1, 100);
     ui.initialize(renderer.getSwapChainRenderPass(), renderer.getImageCount(), globalPool->getDescriptorPool());
     simpleRenderSystem.createRenderer(renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout());
     pointLightSystem.createRenderer(renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout());

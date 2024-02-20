@@ -454,30 +454,6 @@ src/mnlt/device.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/device.cpp.s
 .PHONY : src/mnlt/device.cpp.s
 
-src/mnlt/input_controller.o: src/mnlt/input_controller.cpp.o
-.PHONY : src/mnlt/input_controller.o
-
-# target to build an object file
-src/mnlt/input_controller.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/input_controller.cpp.o
-.PHONY : src/mnlt/input_controller.cpp.o
-
-src/mnlt/input_controller.i: src/mnlt/input_controller.cpp.i
-.PHONY : src/mnlt/input_controller.i
-
-# target to preprocess a source file
-src/mnlt/input_controller.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/input_controller.cpp.i
-.PHONY : src/mnlt/input_controller.cpp.i
-
-src/mnlt/input_controller.s: src/mnlt/input_controller.cpp.s
-.PHONY : src/mnlt/input_controller.s
-
-# target to generate assembly for a file
-src/mnlt/input_controller.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/input_controller.cpp.s
-.PHONY : src/mnlt/input_controller.cpp.s
-
 src/mnlt/model.o: src/mnlt/model.cpp.o
 .PHONY : src/mnlt/model.o
 
@@ -791,9 +767,6 @@ help:
 	@echo "... src/mnlt/device.o"
 	@echo "... src/mnlt/device.i"
 	@echo "... src/mnlt/device.s"
-	@echo "... src/mnlt/input_controller.o"
-	@echo "... src/mnlt/input_controller.i"
-	@echo "... src/mnlt/input_controller.s"
 	@echo "... src/mnlt/model.o"
 	@echo "... src/mnlt/model.i"
 	@echo "... src/mnlt/model.s"

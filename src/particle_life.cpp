@@ -59,6 +59,7 @@ void ParticleLifeSystem::createParticles(mnlt::GameObject::Map* particleObjects)
             obj.model = model;
             obj.transform.scale = glm::vec3(0.01f);
             obj.transform.translation = random3DPosition(lowerBound, upperBound);
+            obj.rigidBody.mass = randomFloat(0, 100);
             auto& ptr = particleObjects->emplace(obj.getId(), std::move(obj)).first->second;
          
             pt.particles.push_back(&ptr);
@@ -91,25 +92,29 @@ void ParticleLifeSystem::particleTypePhysics(PartcleType& type1, PartcleType& ty
 
             if(p1->transform.translation != p2->transform.translation)
             {
-                float force = distanceSquared < radiusOfAttraction*radiusOfAttraction ? (1.0f / sqrt(distanceSquared)): 0.0f;
+                float force = distanceSquared < radiusOfAttraction*radiusOfAttraction ? (1.0f / sqrt(distanceSquared) * p1->rigidBody.mass * p2->rigidBody.mass): 0.0f;
                 totalForce += direction * force;
             }
         }
 
-        p1->rigidBody.velocity = deltaTime * ((p1->rigidBody.velocity + (totalForce * g)) * (1.0f - viscosity));
+        p1->rigidBody.velocity = deltaTime * (p1->rigidBody.velocity + (totalForce * g)) * (1.0f - viscosity);
         p1->transform.translation += deltaTime * p1->rigidBody.velocity;
     }
 
-    for(auto& p1 : type1.particles)
+    if(isBounded)
     {
-        p1->transform.translation = glm::min(glm::max(p1->transform.translation, lowerBound), upperBound);
+        for(auto& p1 : type1.particles)
+        {
+            p1->transform.translation = glm::min(glm::max(p1->transform.translation, lowerBound), upperBound);
+        }
     }
 }
 
 void ParticleLifeSystem::createParticleLifeUI(mnlt::GameObject::Map* particleObjects)
 {
     ImGui::Begin("Particle Life");
-    ImGui::DragFloat("Radius", &radiusOfAttraction, 0.1f);
+    ImGui::Checkbox("Bounded", &isBounded);
+    ImGui::DragFloat("Radius", &radiusOfAttraction, 0.01f, 0.f, 10.f);
     ImGui::DragFloat("Viscosity", &viscosity, 0.01f, 0.1f, 2.f);
     static int selectedpt;
     for(auto& pt : particleTypes)

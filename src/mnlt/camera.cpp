@@ -1,6 +1,7 @@
 #include "camera.hpp"
 
 // std
+#include <GLFW/glfw3.h>
 #include <cassert>
 #include <limits>
 
@@ -165,7 +166,10 @@ namespace mnlt
 
         if (glm::dot(moveDir, moveDir) > std::numeric_limits<float>::epsilon()) 
         {
-            viewerObject.transform.translation += moveSpeed * static_cast<float>(pureDeltaTime) * glm::normalize(moveDir);
+            if(glfwGetKey(window, keys.speedBoost) == GLFW_PRESS)
+                viewerObject.transform.translation += (moveSpeed + speedBoost) * static_cast<float>(pureDeltaTime) * glm::normalize(moveDir);
+            else
+                viewerObject.transform.translation += moveSpeed * static_cast<float>(pureDeltaTime) * glm::normalize(moveDir);
         }
         updateView();
     }

@@ -21,6 +21,7 @@ namespace mnlt
                 int moveUp = GLFW_KEY_E;
                 int moveDown = GLFW_KEY_Q;
                 int look = GLFW_MOUSE_BUTTON_RIGHT;
+                int speedBoost = GLFW_KEY_LEFT_SHIFT;
             };
 
             void setOrthographicProjection(float left, float right, float bottom, float top, float near, float far);
@@ -50,6 +51,7 @@ namespace mnlt
             glm::mat4 inverseViewMatrix{1.f};
             KeyMappings keys{};
             float moveSpeed{3.f};
+            float speedBoost{moveSpeed * 2};
             float lookSpeed{2.0f};
             float near{0.1};
             float far{100};

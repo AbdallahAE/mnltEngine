@@ -25,8 +25,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/MoonLight.dir/src/mnlt/descriptors.cpp.o.d"
   "CMakeFiles/MoonLight.dir/src/mnlt/device.cpp.o"
   "CMakeFiles/MoonLight.dir/src/mnlt/device.cpp.o.d"
-  "CMakeFiles/MoonLight.dir/src/mnlt/input_controller.cpp.o"
-  "CMakeFiles/MoonLight.dir/src/mnlt/input_controller.cpp.o.d"
   "CMakeFiles/MoonLight.dir/src/mnlt/model.cpp.o"
   "CMakeFiles/MoonLight.dir/src/mnlt/model.cpp.o.d"
   "CMakeFiles/MoonLight.dir/src/mnlt/pipeline.cpp.o"

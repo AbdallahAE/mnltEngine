@@ -44,6 +44,7 @@ class ParticleLifeSystem
         std::vector<PartcleType> particleTypes;
         
     private:
+        bool isBounded = true;
         float viscosity = 0.1f;
         float radiusOfAttraction = 0.5;
         glm::vec3 lowerBound;
