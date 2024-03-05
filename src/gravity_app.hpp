@@ -6,8 +6,18 @@
 #include "mnlt/render_systems/simple_render_system.hpp"
 #include "mnlt/ui.hpp"
 
-
-class TestApp : public mnlt::App 
+class GravityPhysicsSystem
+{
+    public:
+        GravityPhysicsSystem(float strength) : strengthGravity{strength} {}
+        const float strengthGravity;
+        void update(mnlt::GameObject::Map* physicsObjs, mnlt::Time time, int substeps);
+        glm::vec3 computeForce(mnlt::GameObject& fromObj, mnlt::GameObject& toObj) const;
+        
+    private:
+        void stepSimulation(mnlt::GameObject::Map* physicsObjs, float deltaTime);
+};
+class GravityApp : public mnlt::App 
 {
     public:
         void start() override;
@@ -15,7 +25,10 @@ class TestApp : public mnlt::App
         void update(mnlt::Time time) override;
 
     private:
-        void loadGameObjects();
+        void loadPhysicsObjects();
+
+        GravityPhysicsSystem gravitySystem{6.674e-4f};
+
 
         mnlt::SimpleRenderSystem simpleRenderSystem{device};
         mnlt::PointLightSystem pointLightSystem{device};

@@ -24,7 +24,19 @@ namespace mnlt
           .addPoolSize(VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC, 1000)
           .addPoolSize(VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1000)
           .setPoolFlags(VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT)
-          .build();        
+          .build();  
+
+        // build frame descriptor pools
+        framePools.resize(SwapChain::MAX_FRAMES_IN_FLIGHT);
+        auto framePoolBuilder = DescriptorPool::Builder(device)
+                                    .setMaxSets(1000)
+                                    .addPoolSize(VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1000)
+                                    .addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1000)
+                                    .setPoolFlags(VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT);
+        for (int i = 0; i < framePools.size(); i++) {
+            framePools[i] = framePoolBuilder.build();
+        }
+      
     }
     App::~App()
     {
@@ -73,19 +85,21 @@ namespace mnlt
             if (auto commandBuffer = renderer.beginFrame()) 
             {
                 int frameIndex = renderer.getFrameIndex();
-                FrameInfo frameInfo{frameIndex, time, commandBuffer, camera, globalDescriptorSets[frameIndex], gameObjects};
+                framePools[frameIndex]->resetPool();
+                FrameInfo frameInfo{frameIndex, time, commandBuffer, camera, globalDescriptorSets[frameIndex], *framePools[frameIndex], gameObjectManager.gameObjects};
 
                 update(time);
+                // final step of update is updating the game objects buffer data
+                // The render functions MUST not change a game objects transform data
+                gameObjectManager.updateBuffer(frameIndex);
         
                 renderer.beginSwapChainRenderPass(commandBuffer);
+                renderSystems(commandBuffer, frameInfo);
 
                 // update
                 ubo.projection = camera.getProjection();
                 ubo.view = camera.getView();
                 ubo.inverseView = camera.getInverseView();
-
-                renderSystems(commandBuffer, frameInfo);
-
                 uboBuffers[frameIndex]->writeToBuffer(&ubo);
                 uboBuffers[frameIndex]->flush();
 

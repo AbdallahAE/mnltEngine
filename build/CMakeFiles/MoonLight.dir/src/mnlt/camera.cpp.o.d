@@ -300,6 +300,8 @@ CMakeFiles/MoonLight.dir/src/mnlt/camera.cpp.o: \
  /usr/include/c++/13.2.1/backward/auto_ptr.h \
  /usr/include/c++/13.2.1/pstl/glue_memory_defs.h \
  /usr/include/c++/13.2.1/pstl/execution_defs.h \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/swap_chain.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/texture.hpp \
  /usr/include/glm/gtc/matrix_transform.hpp \
  /usr/include/glm/ext/matrix_projection.hpp \
  /usr/include/glm/gtc/constants.hpp \

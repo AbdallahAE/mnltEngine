@@ -3,6 +3,7 @@
 // std
 #include <GLFW/glfw3.h>
 #include <cassert>
+#include <glm/gtc/constants.hpp>
 #include <limits>
 
 namespace mnlt 
@@ -75,12 +76,12 @@ namespace mnlt
 
     void Camera::updateView() 
     {
-        const float c3 = glm::cos(viewerObject.transform.rotation.z);
-        const float s3 = glm::sin(viewerObject.transform.rotation.z);
-        const float c2 = glm::cos(viewerObject.transform.rotation.x);
-        const float s2 = glm::sin(viewerObject.transform.rotation.x);
-        const float c1 = glm::cos(viewerObject.transform.rotation.y);
-        const float s1 = glm::sin(viewerObject.transform.rotation.y);
+        const float c3 = glm::cos(viewerObject.rotation.z);
+        const float s3 = glm::sin(viewerObject.rotation.z);
+        const float c2 = glm::cos(viewerObject.rotation.x);
+        const float s2 = glm::sin(viewerObject.rotation.x);
+        const float c1 = glm::cos(viewerObject.rotation.y);
+        const float s1 = glm::sin(viewerObject.rotation.y);
         const glm::vec3 u{(c1 * c3 + s1 * s2 * s3), (c2 * s3), (c1 * s2 * s3 - c3 * s1)};
         const glm::vec3 v{(c3 * s1 * s2 - c1 * s3), (c2 * c3), (c1 * c3 * s2 + s1 * s3)};
         const glm::vec3 w{(c2 * s1), (-s2), (c1 * c2)};
@@ -94,9 +95,9 @@ namespace mnlt
         viewMatrix[0][2] = w.x;
         viewMatrix[1][2] = w.y;
         viewMatrix[2][2] = w.z;
-        viewMatrix[3][0] = -glm::dot(u, viewerObject.transform.translation);
-        viewMatrix[3][1] = -glm::dot(v, viewerObject.transform.translation);
-        viewMatrix[3][2] = -glm::dot(w, viewerObject.transform.translation);
+        viewMatrix[3][0] = -glm::dot(u, viewerObject.translation);
+        viewMatrix[3][1] = -glm::dot(v, viewerObject.translation);
+        viewMatrix[3][2] = -glm::dot(w, viewerObject.translation);
 
         inverseViewMatrix = glm::mat4{1.f};
         inverseViewMatrix[0][0] = u.x;
@@ -108,9 +109,9 @@ namespace mnlt
         inverseViewMatrix[2][0] = w.x;
         inverseViewMatrix[2][1] = w.y;
         inverseViewMatrix[2][2] = w.z;
-        inverseViewMatrix[3][0] = viewerObject.transform.translation.x;
-        inverseViewMatrix[3][1] = viewerObject.transform.translation.y;
-        inverseViewMatrix[3][2] = viewerObject.transform.translation.z;
+        inverseViewMatrix[3][0] = viewerObject.translation.x;
+        inverseViewMatrix[3][1] = viewerObject.translation.y;
+        inverseViewMatrix[3][2] = viewerObject.translation.z;
     }
 
     void Camera::move(GLFWwindow* window, double pureDeltaTime) 
@@ -138,15 +139,15 @@ namespace mnlt
         float mouseSpeed = sqrt(deltaX * deltaX + deltaY * deltaY) / static_cast<float>(pureDeltaTime) * 0.001 * lookSpeed;
 
         if (glm::dot(rotate, rotate) > std::numeric_limits<float>::epsilon()) {
-            viewerObject.transform.rotation += mouseSpeed * static_cast<float>(pureDeltaTime) * glm::normalize(rotate);
+            viewerObject.rotation += mouseSpeed * static_cast<float>(pureDeltaTime) * glm::normalize(rotate);
         }
 
         // limit pitch values between about +/- 85ish degrees
-        viewerObject.transform.rotation.x = glm::clamp(viewerObject.transform.rotation.x, -1.5f, 1.5f);
-        viewerObject.transform.rotation.y = glm::mod(viewerObject.transform.rotation.y, glm::two_pi<float>());
+        viewerObject.rotation.x = glm::clamp(viewerObject.rotation.x, -1.5f, 1.5f);
+        viewerObject.rotation.y = glm::mod(viewerObject.rotation.y, glm::two_pi<float>());
 
-        float yaw = viewerObject.transform.rotation.y;
-        float pitch = -viewerObject.transform.rotation.x;
+        float yaw = viewerObject.rotation.y;
+        float pitch = -viewerObject.rotation.x;
         const glm::vec3 forwardDir
         {
             sin(yaw) * cos(pitch), 
@@ -167,9 +168,9 @@ namespace mnlt
         if (glm::dot(moveDir, moveDir) > std::numeric_limits<float>::epsilon()) 
         {
             if(glfwGetKey(window, keys.speedBoost) == GLFW_PRESS)
-                viewerObject.transform.translation += (moveSpeed + speedBoost) * static_cast<float>(pureDeltaTime) * glm::normalize(moveDir);
+                viewerObject.translation += (moveSpeed + speedBoost) * static_cast<float>(pureDeltaTime) * glm::normalize(moveDir);
             else
-                viewerObject.transform.translation += moveSpeed * static_cast<float>(pureDeltaTime) * glm::normalize(moveDir);
+                viewerObject.translation += moveSpeed * static_cast<float>(pureDeltaTime) * glm::normalize(moveDir);
         }
         updateView();
     }

@@ -310,6 +310,30 @@ libs/imgui/imgui_widgets.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/libs/imgui/imgui_widgets.cpp.s
 .PHONY : libs/imgui/imgui_widgets.cpp.s
 
+src/gravity_app.o: src/gravity_app.cpp.o
+.PHONY : src/gravity_app.o
+
+# target to build an object file
+src/gravity_app.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/gravity_app.cpp.o
+.PHONY : src/gravity_app.cpp.o
+
+src/gravity_app.i: src/gravity_app.cpp.i
+.PHONY : src/gravity_app.i
+
+# target to preprocess a source file
+src/gravity_app.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/gravity_app.cpp.i
+.PHONY : src/gravity_app.cpp.i
+
+src/gravity_app.s: src/gravity_app.cpp.s
+.PHONY : src/gravity_app.s
+
+# target to generate assembly for a file
+src/gravity_app.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/gravity_app.cpp.s
+.PHONY : src/gravity_app.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -453,6 +477,30 @@ src/mnlt/device.s: src/mnlt/device.cpp.s
 src/mnlt/device.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/device.cpp.s
 .PHONY : src/mnlt/device.cpp.s
+
+src/mnlt/game_object.o: src/mnlt/game_object.cpp.o
+.PHONY : src/mnlt/game_object.o
+
+# target to build an object file
+src/mnlt/game_object.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/game_object.cpp.o
+.PHONY : src/mnlt/game_object.cpp.o
+
+src/mnlt/game_object.i: src/mnlt/game_object.cpp.i
+.PHONY : src/mnlt/game_object.i
+
+# target to preprocess a source file
+src/mnlt/game_object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/game_object.cpp.i
+.PHONY : src/mnlt/game_object.cpp.i
+
+src/mnlt/game_object.s: src/mnlt/game_object.cpp.s
+.PHONY : src/mnlt/game_object.s
+
+# target to generate assembly for a file
+src/mnlt/game_object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/game_object.cpp.s
+.PHONY : src/mnlt/game_object.cpp.s
 
 src/mnlt/model.o: src/mnlt/model.cpp.o
 .PHONY : src/mnlt/model.o
@@ -622,6 +670,30 @@ src/mnlt/swap_chain.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/swap_chain.cpp.s
 .PHONY : src/mnlt/swap_chain.cpp.s
 
+src/mnlt/texture.o: src/mnlt/texture.cpp.o
+.PHONY : src/mnlt/texture.o
+
+# target to build an object file
+src/mnlt/texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/texture.cpp.o
+.PHONY : src/mnlt/texture.cpp.o
+
+src/mnlt/texture.i: src/mnlt/texture.cpp.i
+.PHONY : src/mnlt/texture.i
+
+# target to preprocess a source file
+src/mnlt/texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/texture.cpp.i
+.PHONY : src/mnlt/texture.cpp.i
+
+src/mnlt/texture.s: src/mnlt/texture.cpp.s
+.PHONY : src/mnlt/texture.s
+
+# target to generate assembly for a file
+src/mnlt/texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MoonLight.dir/build.make CMakeFiles/MoonLight.dir/src/mnlt/texture.cpp.s
+.PHONY : src/mnlt/texture.cpp.s
+
 src/mnlt/ui.o: src/mnlt/ui.cpp.o
 .PHONY : src/mnlt/ui.o
 
@@ -749,6 +821,9 @@ help:
 	@echo "... libs/imgui/imgui_widgets.o"
 	@echo "... libs/imgui/imgui_widgets.i"
 	@echo "... libs/imgui/imgui_widgets.s"
+	@echo "... src/gravity_app.o"
+	@echo "... src/gravity_app.i"
+	@echo "... src/gravity_app.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -767,6 +842,9 @@ help:
 	@echo "... src/mnlt/device.o"
 	@echo "... src/mnlt/device.i"
 	@echo "... src/mnlt/device.s"
+	@echo "... src/mnlt/game_object.o"
+	@echo "... src/mnlt/game_object.i"
+	@echo "... src/mnlt/game_object.s"
 	@echo "... src/mnlt/model.o"
 	@echo "... src/mnlt/model.i"
 	@echo "... src/mnlt/model.s"
@@ -788,6 +866,9 @@ help:
 	@echo "... src/mnlt/swap_chain.o"
 	@echo "... src/mnlt/swap_chain.i"
 	@echo "... src/mnlt/swap_chain.s"
+	@echo "... src/mnlt/texture.o"
+	@echo "... src/mnlt/texture.i"
+	@echo "... src/mnlt/texture.s"
 	@echo "... src/mnlt/ui.o"
 	@echo "... src/mnlt/ui.i"
 	@echo "... src/mnlt/ui.s"

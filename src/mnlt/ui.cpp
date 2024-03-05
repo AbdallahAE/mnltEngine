@@ -150,8 +150,8 @@ namespace mnlt
                 {
                     ImGui::Checkbox("Enable Grid", &frameInfo.camera.enableGrid);
                     ImGui::DragInt("Intensity", &frameInfo.camera.gridSize);
-                    ImGui::DragFloat3("Translation", &frameInfo.camera.viewerObject.transform.translation[0], 0.1f);
-                    ImGui::DragFloat3("Rotation", &frameInfo.camera.viewerObject.transform.rotation[0], 0.1f);
+                    ImGui::DragFloat3("Translation", &frameInfo.camera.viewerObject.translation[0], 0.1f);
+                    ImGui::DragFloat3("Rotation", &frameInfo.camera.viewerObject.rotation[0], 0.1f);
                     ImGui::EndMenu();
                 }
                 ImGui::EndMenuBar();

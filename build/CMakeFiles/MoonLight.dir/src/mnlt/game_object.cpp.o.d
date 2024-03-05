@@ -1,9 +1,10 @@
-CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o: \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/simple_render_system.cpp \
+CMakeFiles/MoonLight.dir/src/mnlt/game_object.cpp.o: \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/game_object.cpp \
  /usr/include/stdc-predef.h \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/simple_render_system.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../device.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../window.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/game_object.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/model.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/device.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/window.hpp \
  /usr/include/GLFW/glfw3.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stddef.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdint.h \
@@ -124,12 +125,7 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_vector.h \
  /usr/include/c++/13.2.1/bits/stl_bvector.h \
  /usr/include/c++/13.2.1/bits/vector.tcc \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../pipeline.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../frame_info.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../camera.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../game_object.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../model.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../buffer.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/buffer.hpp \
  /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
  /usr/include/c++/13.2.1/cmath /usr/include/math.h \
  /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
@@ -303,8 +299,8 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o: \
  /usr/include/c++/13.2.1/backward/auto_ptr.h \
  /usr/include/c++/13.2.1/pstl/glue_memory_defs.h \
  /usr/include/c++/13.2.1/pstl/execution_defs.h \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../swap_chain.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../texture.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/swap_chain.hpp \
+ /home/abdallah/Dev/mnltEngine/src/mnlt/texture.hpp \
  /usr/include/glm/gtc/matrix_transform.hpp \
  /usr/include/glm/ext/matrix_projection.hpp \
  /usr/include/glm/gtc/constants.hpp \
@@ -323,10 +319,6 @@ CMakeFiles/MoonLight.dir/src/mnlt/render_systems/simple_render_system.cpp.o: \
  /usr/include/c++/13.2.1/bits/hashtable_policy.h \
  /usr/include/c++/13.2.1/bits/enable_special_members.h \
  /usr/include/c++/13.2.1/bits/node_handle.h \
- /usr/include/c++/13.2.1/bits/erase_if.h \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../descriptors.hpp \
- /home/abdallah/Dev/mnltEngine/src/mnlt/render_systems/../time.hpp \
- /usr/include/c++/13.2.1/chrono /usr/include/c++/13.2.1/bits/chrono.h \
- /usr/include/c++/13.2.1/ratio /usr/include/c++/13.2.1/ctime \
- /usr/include/c++/13.2.1/bits/parse_numbers.h \
- /usr/include/c++/13.2.1/stdexcept
+ /usr/include/c++/13.2.1/bits/erase_if.h /usr/include/c++/13.2.1/numeric \
+ /usr/include/c++/13.2.1/bits/stl_numeric.h \
+ /usr/include/c++/13.2.1/pstl/glue_numeric_defs.h

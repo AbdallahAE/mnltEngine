@@ -1,12 +1,14 @@
 #include "particle_life.hpp"
 
 #include "../libs/imgui/imgui.h"
+#include "mnlt/game_object.hpp"
 
 #include <glm/common.hpp>
 #include <random>
 
 void PartcleLife::start()
 {
+    ubo.ambientLightColor = glm::vec4(1.f);
     camera.setPerspectiveProjection(glm::radians(50.f), renderer.getAspectRatio(), 0.1f, 1000.f);
 
     ui.initialize(renderer.getSwapChainRenderPass(), renderer.getImageCount(), globalPool->getDescriptorPool());
@@ -22,7 +24,7 @@ void PartcleLife::start()
     particleLifeSystem.particleTypes.push_back(p3);
     PartcleType p4{"white", {1.f, 1.f, 1.f}, 50};
     particleLifeSystem.particleTypes.push_back(p4);
-    particleLifeSystem.createParticles(&gameObjects);
+    particleLifeSystem.createParticles(&gameObjectManager);
 }
 void PartcleLife::renderSystems(VkCommandBuffer commandBuffer, mnlt::FrameInfo frameInfo)
 {
@@ -32,7 +34,7 @@ void PartcleLife::renderSystems(VkCommandBuffer commandBuffer, mnlt::FrameInfo f
         gridSystem.render(frameInfo);
     ui.newFrame();
     ui.runExample(frameInfo);
-    particleLifeSystem.createParticleLifeUI(&gameObjects);
+    particleLifeSystem.createParticleLifeUI(&gameObjectManager);
     ui.render(commandBuffer);
 }
 void PartcleLife::update(mnlt::Time time)
@@ -44,7 +46,7 @@ void PartcleLife::update(mnlt::Time time)
     particleLifeSystem.updateParticleLife(time);
 }
 
-void ParticleLifeSystem::createParticles(mnlt::GameObject::Map* particleObjects)
+void ParticleLifeSystem::createParticles(mnlt::GameObjectManager* particleObjectsManager)
 {
     for(auto& pt : particleTypes)
     {
@@ -54,15 +56,14 @@ void ParticleLifeSystem::createParticles(mnlt::GameObject::Map* particleObjects)
         }
         for(int i=0; i<pt.numOfParticles; i++)
         {
-            auto obj = mnlt::GameObject::createGameObject();
+            auto& obj = particleObjectsManager->createGameObject();
             obj.color = pt.color;
             obj.model = model;
             obj.transform.scale = glm::vec3(0.01f);
             obj.transform.translation = random3DPosition(lowerBound, upperBound);
             obj.rigidBody.mass = randomFloat(0, 100);
-            auto& ptr = particleObjects->emplace(obj.getId(), std::move(obj)).first->second;
          
-            pt.particles.push_back(&ptr);
+            pt.particles.push_back(&obj);
         }
     }
 }
@@ -110,7 +111,7 @@ void ParticleLifeSystem::particleTypePhysics(PartcleType& type1, PartcleType& ty
     }
 }
 
-void ParticleLifeSystem::createParticleLifeUI(mnlt::GameObject::Map* particleObjects)
+void ParticleLifeSystem::createParticleLifeUI(mnlt::GameObjectManager* particleObjectsManager)
 {
     ImGui::Begin("Particle Life");
     ImGui::Checkbox("Bounded", &isBounded);
@@ -145,13 +146,13 @@ void ParticleLifeSystem::createParticleLifeUI(mnlt::GameObject::Map* particleObj
             {
                 if(pt.particles.size() != pt.numOfParticles)
                 {
-                    particleObjects->clear();
+                    particleObjectsManager->gameObjects.clear();
                     for(auto& paty : particleTypes)
                     {
                         paty.particles.clear();
                         paty.attraction.clear();
                     }
-                    createParticles(particleObjects);
+                    createParticles(particleObjectsManager);
                 }
                 for(auto &p : pt.particles)
                 {

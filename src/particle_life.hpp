@@ -34,8 +34,8 @@ class ParticleLifeSystem
 {
     public:
         ParticleLifeSystem(std::shared_ptr<mnlt::Model> model, glm::vec3 lowerBound, glm::vec3 upperBound) : model{model}, lowerBound{lowerBound}, upperBound{upperBound} {}
-        void createParticles(mnlt::GameObject::Map* particleObjects);
-        void createParticleLifeUI(mnlt::GameObject::Map* particleObjects);
+        void createParticles(mnlt::GameObjectManager* particleObjectsManager);
+        void createParticleLifeUI(mnlt::GameObjectManager* particleObjectsManager);
         glm::vec3 random3DPosition(glm::vec3 lowerBound, glm::vec3 upperBound);
         float randomFloat(float min, float max);
         void updateParticleLife(mnlt::Time time);
@@ -54,7 +54,6 @@ class ParticleLifeSystem
 class PartcleLife : public mnlt::App 
 {
     public:
-        // Override functions that are declared to be in child class
         void start() override;
         void renderSystems(VkCommandBuffer commandBuffer, mnlt::FrameInfo frameInfo) override;
         void update(mnlt::Time time) override;

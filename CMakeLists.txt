@@ -68,6 +68,11 @@ if (NOT IMGUI_PATH)
   set(IMGUI_PATH libs/imgui)
 endif()
 
+if (NOT STB_PATH)
+  message(STATUS "STB_PATH not specified in .env.cmake, using libs/stb")
+  set(STB_PATH libs/stb)
+endif()
+
 file(GLOB_RECURSE SOURCES
   ${PROJECT_SOURCE_DIR}/src/*.cpp
   ${IMGUI_PATH}/*.cpp
@@ -96,6 +101,7 @@ if (WIN32)
     ${Vulkan_INCLUDE_DIRS}
     ${TINYOBJ_PATH}
     ${IMGUI_PATH}
+    ${STB_PATH}
     ${GLFW_INCLUDE_DIRS}
     ${GLM_PATH}
     )
@@ -112,6 +118,7 @@ elseif (UNIX)
     target_include_directories(${PROJECT_NAME} PUBLIC
       ${TINYOBJ_PATH}
       ${IMGUI_PATH}
+      ${STB_PATH}
       ${PROJECT_SOURCE_DIR}/src
     )
     target_link_libraries(${PROJECT_NAME} glfw ${Vulkan_LIBRARIES})

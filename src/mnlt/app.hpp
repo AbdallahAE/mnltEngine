@@ -38,6 +38,7 @@ namespace mnlt
             // note: order of declarations matters
             std::unique_ptr<DescriptorPool> globalPool;
             GlobalUbo ubo;
-            GameObject::Map gameObjects;
+            std::vector<std::unique_ptr<DescriptorPool>> framePools;
+            GameObjectManager gameObjectManager{device};
     };
 }
