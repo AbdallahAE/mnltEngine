@@ -14,8 +14,6 @@ namespace mnlt
 
     struct SimplePushConstantData 
     {
-        glm::mat4 modelMatrix{1.f};
-        glm::mat4 normalMatrix{1.f};
         glm::vec3 color{1.f};
     };
 
@@ -124,9 +122,6 @@ namespace mnlt
                 nullptr);
 
             SimplePushConstantData push{};
-            auto modelMatrix = obj.transform.mat4();
-            push.modelMatrix = obj.transform.mat4();
-            push.normalMatrix = obj.transform.normalMatrix();
             push.color = obj.color;
 
             vkCmdPushConstants

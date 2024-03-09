@@ -4,6 +4,7 @@ layout (location = 0) in vec3 fragColor;
 layout (location = 1) in vec3 fragPosWorld;
 layout (location = 2) in vec3 fragNormalWorld;
 layout (location = 3) in vec2 fragUv;
+layout(location = 4) flat in int fragLayerIndex;
 
 layout (location = 0) out vec4 outColor;
 
@@ -27,11 +28,9 @@ layout(set = 0, binding = 0) uniform GlobalUbo {
   int numLights;
 } ubo;
 
-layout (set = 1, binding = 1) uniform sampler2D diffuseMap;
+layout (set = 1, binding = 1) uniform sampler2DArray diffuseMap;
 
 layout(push_constant) uniform Push {
-  mat4 modelMatrix;
-  mat4 normalMatrix;
   vec3 color;
 } push;
 
@@ -74,6 +73,6 @@ void main() {
   blinnTerm = pow(blinnTerm, 512.0); // higher values -> sharper highlight
   specularLight += sunLightColor * blinnTerm;
 
-  vec3 color = texture(diffuseMap, fragUv).xyz;
+  vec3 color = texture(diffuseMap, vec3(fragUv, fragLayerIndex)).xyz;
   outColor = vec4(((diffuseLight + ambientLight + sunLight) * fragColor * color) + (specularLight * fragColor), 1.0);
 }

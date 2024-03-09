@@ -39,8 +39,7 @@ void PartcleLife::renderSystems(VkCommandBuffer commandBuffer, mnlt::FrameInfo f
 }
 void PartcleLife::update(mnlt::Time time)
 {
-    if(window.wasWindowResized())
-        camera.setPerspectiveProjection(glm::radians(50.f), renderer.getAspectRatio(), 0.1f, 1000.f);
+    camera.setPerspectiveProjection(glm::radians(50.f), renderer.getAspectRatio(), 0.1f, 1000.f);
     camera.move(window.getGLFWwindow(), time.getPureDeltaTime());
 
     particleLifeSystem.updateParticleLife(time);

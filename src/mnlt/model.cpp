@@ -152,6 +152,7 @@ namespace mnlt
         attributeDescriptions.push_back({1, 0, VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex, color)});
         attributeDescriptions.push_back({2, 0, VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex, normal)});
         attributeDescriptions.push_back({3, 0, VK_FORMAT_R32G32_SFLOAT, offsetof(Vertex, uv)});
+        attributeDescriptions.push_back({4, 0, VK_FORMAT_R32_SINT, offsetof(Vertex, layerIndex)});
 
         return attributeDescriptions;
     }
@@ -174,6 +175,7 @@ namespace mnlt
         std::unordered_map<Vertex, uint32_t> uniqueVertices{};
         for (const auto &shape : shapes) 
         {
+            //std::cout << shape.name.c_str() << std::endl;
             for (const auto &index : shape.mesh.indices) 
             {
                 Vertex vertex{};
@@ -210,6 +212,8 @@ namespace mnlt
                         attrib.texcoords[2 * index.texcoord_index + 1],
                     };
                 }
+                
+                vertex.layerIndex = 0;
 
                 if (uniqueVertices.count(vertex) == 0) 
                 {

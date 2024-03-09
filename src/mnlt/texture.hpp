@@ -11,7 +11,7 @@ namespace mnlt
     class Texture
     {
         public:
-            Texture(Device &device, const std::string &textureFilepath);
+            Texture(Device &device, const std::vector<std::string> &textureFilepaths);
             Texture(Device &device, VkFormat format, VkExtent3D extent, VkImageUsageFlags usage, VkSampleCountFlagBits sampleCount);
             ~Texture();
 
@@ -34,10 +34,10 @@ namespace mnlt
                 VkCommandBuffer commandBuffer, VkImageLayout oldLayout, VkImageLayout newLayout);
 
             static std::unique_ptr<Texture> createTextureFromFile(
-                Device &device, const std::string &filepath);
+                Device &device, const std::vector<std::string> &filepaths);
 
         private:
-            void createTextureImage(const std::string &filepath);
+            void createTextureImage(const std::vector<std::string> &filepaths);
             void createTextureImageView(VkImageViewType viewType);
             void createTextureSampler();
 

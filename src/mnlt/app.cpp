@@ -76,6 +76,7 @@ namespace mnlt
 
         Time time;
 
+        time.timeScale = 0.0f;
         while (!window.shouldClose())
         {
             glfwPollEvents();

@@ -27,7 +27,7 @@ class GravityApp : public mnlt::App
     private:
         void loadPhysicsObjects();
 
-        GravityPhysicsSystem gravitySystem{6.674e-4f};
+        GravityPhysicsSystem gravitySystem{6.674e-18f};
 
 
         mnlt::SimpleRenderSystem simpleRenderSystem{device};

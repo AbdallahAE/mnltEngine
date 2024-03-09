@@ -2,6 +2,7 @@
 
 #include <numeric>
 #include <string>
+#include <vector>
 
 namespace mnlt 
 {
@@ -93,7 +94,8 @@ namespace mnlt
                 alignment);
             uboBuffers[i]->map();
         }
-        textureDefault = Texture::createTextureFromFile(device, "assets/textures/default.png");
+        std::vector<std::string> textures = {"assets/textures/default.png"};
+        textureDefault = Texture::createTextureFromFile(device, textures);
     }
 
     void GameObjectManager::updateBuffer(int frameIndex) 

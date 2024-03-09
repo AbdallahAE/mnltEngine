@@ -3,6 +3,7 @@
 
 void GravityApp::start()
 {
+    ubo.ambientLightColor = glm::vec4(1.f);
     camera.setPerspectiveProjection(glm::radians(50.f), renderer.getAspectRatio(), 0.1f, 1000.f);
 
     ui.initialize(renderer.getSwapChainRenderPass(), renderer.getImageCount(), globalPool->getDescriptorPool());
@@ -24,8 +25,7 @@ void GravityApp::renderSystems(VkCommandBuffer commandBuffer, mnlt::FrameInfo fr
 }
 void GravityApp::update(mnlt::Time time)
 {
-    if(window.wasWindowResized())
-        camera.setPerspectiveProjection(glm::radians(50.f), renderer.getAspectRatio(), 0.1f, 1000.f);
+    camera.setPerspectiveProjection(glm::radians(50.f), renderer.getAspectRatio(), 0.1f, 1000.f);
     camera.move(window.getGLFWwindow(), time.getPureDeltaTime());
     
     gravitySystem.update(&gameObjectManager.gameObjects, time, 100);
@@ -34,7 +34,7 @@ void GravityApp::update(mnlt::Time time)
 void GravityPhysicsSystem::update(mnlt::GameObject::Map* physicsObjs, mnlt::Time time, int substeps) 
 {
     for(int i=0; i<substeps; i++)
-    stepSimulation(physicsObjs, time.getDeltaTime() / substeps);
+        stepSimulation(physicsObjs, time.getDeltaTime() / substeps);
 }
 glm::vec3 GravityPhysicsSystem::computeForce(mnlt::GameObject& fromObj, mnlt::GameObject& toObj) const {
     auto offset = fromObj.transform.translation - toObj.transform.translation;
@@ -62,7 +62,6 @@ void GravityPhysicsSystem::stepSimulation(mnlt::GameObject::Map* physicsObjs, fl
     
             auto force = computeForce(objA.second, objB.second);
             objA.second.rigidBody.velocity += deltaTime * -force / objA.second.rigidBody.mass;
-            objB.second.rigidBody.velocity += deltaTime * force / objB.second.rigidBody.mass;
         }
     }
     // update each objects position based on its final velocity
@@ -76,39 +75,85 @@ void GravityPhysicsSystem::stepSimulation(mnlt::GameObject::Map* physicsObjs, fl
 void GravityApp::loadPhysicsObjects()
 {
     // Create the Sun
-    auto& sun = gameObjectManager.makePointLight(10.f);
-    sun.transform.scale = glm::vec3{0.2f}; // Increase the size for better visualization
+    auto& sun = gameObjectManager.createGameObject();
+    sun.name = "Sun";
+    sun.transform.scale = glm::vec3{1.f}; // Increase the size for better visualization
     sun.transform.translation = {0.0f, 0.0f, 0.0f};
-    sun.color = {1.f, 1.f, 0.f}; // Yellow color for the sun
+    sun.model = mnlt::Model::createModelFromFile(device, "assets/models/sphere.obj");
+    sun.diffuseMap = mnlt::Texture::createTextureFromFile(device, {"assets/textures/sun.jpg"});
     sun.rigidBody.velocity = {.0f, .0f, .0f};
-    sun.rigidBody.mass = 333000.f; // Sun's mass is significantly higher
+    sun.rigidBody.mass = 1.989e24f; // Sun's mass is significantly higher
     // Create Planets
     // Mercury
-    auto& mercury = gameObjectManager.makePointLight(10.f);
-    mercury.transform.scale = glm::vec3{0.05f}; // Adjust scale
-    mercury.transform.translation = {4.0f, 0.0f, 0.0f}; // Position relative to the sun
-    mercury.color = {0.7f, 0.7f, 0.7f}; // Gray color for Mercury
-    mercury.rigidBody.velocity = {.0f, .0f, 7.0f}; // Adjust initial velocity
-    mercury.rigidBody.mass = 0.055f; // Adjust mass relative to Earth
+    auto& mercury = gameObjectManager.createGameObject();
+    mercury.name = "Mercury";
+    mercury.transform.scale = glm::vec3{1.0f}; // Adjust scale
+    mercury.transform.translation = {57.9e-1f, 0.0f, 0.0f}; // Position relative to the sun
+    mercury.model = mnlt::Model::createModelFromFile(device, "assets/models/sphere.obj");
+    mercury.diffuseMap = mnlt::Texture::createTextureFromFile(device, {"assets/textures/mercury.jpg"});
+    mercury.rigidBody.mass = 3.285e16f; // Adjust mass relative to Earth
+    mercury.rigidBody.velocity = {.0f, .0f, (glm::sqrt(gravitySystem.strengthGravity * sun.rigidBody.mass / (mercury.transform.translation.x - sun.transform.translation.x)))}; // Adjust initial velocity
     // Venus
-    auto& venus = gameObjectManager.makePointLight(10.f);
-    venus.transform.scale = glm::vec3{0.08f}; // Adjust scale
-    venus.transform.translation = {6.0f, 0.0f, 0.0f}; // Position relative to the sun
-    venus.color = {0.8f, 0.5f, 0.1f}; // Brownish color for Venus
-    venus.rigidBody.velocity = {.0f, .0f, 5.0f}; // Adjust initial velocity
-    venus.rigidBody.mass = 0.815f; // Adjust mass relative to Earth
+    auto& venus = gameObjectManager.createGameObject();
+    venus.name = "Venus";
+    venus.transform.scale = glm::vec3{1.0f}; // Adjust scale
+    venus.transform.translation = {108.2e-1f, 0.0f, 0.0f}; // Position relative to the sun
+    venus.model = mnlt::Model::createModelFromFile(device, "assets/models/sphere.obj");
+    venus.diffuseMap = mnlt::Texture::createTextureFromFile(device, {"assets/textures/venus.jpg"});
+    venus.rigidBody.mass = 4.867e17f; // Adjust mass relative to Earth
+    venus.rigidBody.velocity = {.0f, .0f, (glm::sqrt(gravitySystem.strengthGravity * sun.rigidBody.mass / (venus.transform.translation.x - sun.transform.translation.x)))}; // Adjust initial velocity
     // Earth
-    auto& earth = gameObjectManager.makePointLight(10.f);
-    earth.transform.scale = glm::vec3{0.1f}; // Adjust scale
-    earth.transform.translation = {9.0f, 0.0f, 0.0f}; // Position relative to the sun
-    earth.color = {0.0f, 0.6f, 1.0f}; // Blue color for Earth
-    earth.rigidBody.velocity = {.0f, .0f, 3.0f}; // Adjust initial velocity
-    earth.rigidBody.mass = 1.0f; // Mass of Earth
+    auto& earth = gameObjectManager.createGameObject();
+    earth.name = "Earth";
+    earth.transform.scale = glm::vec3{1.0f}; // Adjust scale
+    earth.transform.translation = {149.6e-1f, 0.0f, 0.0f}; // Position relative to the sun
+    earth.model = mnlt::Model::createModelFromFile(device, "assets/models/sphere.obj");
+    earth.diffuseMap = mnlt::Texture::createTextureFromFile(device, {"assets/textures/earth.jpg"});
+    earth.rigidBody.mass = 5.972e17f; // Mass of Earth
+    earth.rigidBody.velocity = {.0f, .0f, (glm::sqrt(gravitySystem.strengthGravity * sun.rigidBody.mass / (earth.transform.translation.x - sun.transform.translation.x)))}; // Adjust initial velocity
     // Mars
-    auto& mars = gameObjectManager.makePointLight(10.f);
-    mars.transform.scale = glm::vec3{0.08f}; // Adjust scale
-    mars.transform.translation = {12.0f, 0.0f, 0.0f}; // Position relative to the sun
-    mars.color = {1.0f, 0.3f, 0.0f}; // Reddish color for Mars
-    mars.rigidBody.velocity = {.0f, .0f, 2.5f}; // Adjust initial velocity
-    mars.rigidBody.mass = 0.107f; // Adjust mass relative to Earth
+    auto& mars = gameObjectManager.createGameObject();
+    mars.name = "Mars";
+    mars.transform.scale = glm::vec3{1.0f}; // Adjust scale
+    mars.transform.translation = {227.9e-1f, 0.0f, 0.0f}; // Position relative to the sun
+    mars.model = mnlt::Model::createModelFromFile(device, "assets/models/sphere.obj");
+    mars.diffuseMap = mnlt::Texture::createTextureFromFile(device, {"assets/textures/mars.jpg"});
+    mars.rigidBody.mass = 6.39e16f; // Adjust mass relative to Earth
+    mars.rigidBody.velocity = {.0f, .0f, (glm::sqrt(gravitySystem.strengthGravity * sun.rigidBody.mass / (mars.transform.translation.x - sun.transform.translation.x)))}; // Adjust initial velocity
+    // jupitar
+    auto& jupitar = gameObjectManager.createGameObject();
+    jupitar.name = "Jupitar";
+    jupitar.transform.scale = glm::vec3{1.0f}; // Adjust scale
+    jupitar.transform.translation = {778.6e-1f, 0.0f, 0.0f}; // Position relative to the sun
+    jupitar.model = mnlt::Model::createModelFromFile(device, "assets/models/sphere.obj");
+    jupitar.diffuseMap = mnlt::Texture::createTextureFromFile(device, {"assets/textures/jupitar.jpg"});
+    jupitar.rigidBody.mass = 1.898e20f; // Adjust mass relative to Earth
+    jupitar.rigidBody.velocity = {.0f, .0f, (glm::sqrt(gravitySystem.strengthGravity * sun.rigidBody.mass / (jupitar.transform.translation.x - sun.transform.translation.x)))}; // Adjust initial velocity
+    // Saturn
+    auto& saturn = gameObjectManager.createGameObject();
+    saturn.name = "Saturn";
+    saturn.transform.scale = glm::vec3{1.0f}; // Adjust scale
+    saturn.transform.translation = {1433.5e-1f, 0.0f, 0.0f}; // Position relative to the sun
+    saturn.model = mnlt::Model::createModelFromFile(device, "assets/models/sphere.obj");
+    saturn.diffuseMap = mnlt::Texture::createTextureFromFile(device, {"assets/textures/saturn.jpg"});
+    saturn.rigidBody.mass = 5.683e19f; // Adjust mass relative to Earth
+    saturn.rigidBody.velocity = {.0f, .0f, (glm::sqrt(gravitySystem.strengthGravity * sun.rigidBody.mass / (saturn.transform.translation.x - sun.transform.translation.x)))}; // Adjust initial velocity
+    // Uranus
+    auto& uranus = gameObjectManager.createGameObject();
+    uranus.name = "Uranus";
+    uranus.transform.scale = glm::vec3{1.0f}; // Adjust scale
+    uranus.transform.translation = {2872.5e-1f, 0.0f, 0.0f}; // Position relative to the sun
+    uranus.model = mnlt::Model::createModelFromFile(device, "assets/models/sphere.obj");
+    uranus.diffuseMap = mnlt::Texture::createTextureFromFile(device, {"assets/textures/missing.png"});
+    uranus.rigidBody.mass = 8.681e18f; // Adjust mass relative to Earth
+    uranus.rigidBody.velocity = {.0f, .0f, (glm::sqrt(gravitySystem.strengthGravity * sun.rigidBody.mass / (uranus.transform.translation.x - sun.transform.translation.x)))}; // Adjust initial velocity
+    // Neptune
+    auto& Neptune = gameObjectManager.createGameObject();
+    Neptune.name = "Neptune";
+    Neptune.transform.scale = glm::vec3{1.0f}; // Adjust scale
+    Neptune.transform.translation = {4495.1e-1f, 0.0f, 0.0f}; // Position relative to the sun
+    Neptune.model = mnlt::Model::createModelFromFile(device, "assets/models/sphere.obj");
+    Neptune.diffuseMap = mnlt::Texture::createTextureFromFile(device, {"assets/textures/neptune.jpg"});
+    Neptune.rigidBody.mass = 1.024e19f; // Adjust mass relative to Earth
+    Neptune.rigidBody.velocity = {.0f, .0f, (glm::sqrt(gravitySystem.strengthGravity * sun.rigidBody.mass / (Neptune.transform.translation.x - sun.transform.translation.x)))}; // Adjust initial velocity 
 }

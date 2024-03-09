@@ -2,12 +2,15 @@
 #include "mnlt/game_object.hpp"
 #include "mnlt/texture.hpp"
 #include <GLFW/glfw3.h>
+#include <vector>
 
 
 void TestApp::start()
 {
     camera.setPerspectiveProjection(glm::radians(50.f), renderer.getAspectRatio(), 0.1f, 1000.f);
-    
+
+    /* ubo.ambientLightColor = glm::vec4(1.f); */
+
     ui.initialize(renderer.getSwapChainRenderPass(), renderer.getImageCount(), globalPool->getDescriptorPool());
     simpleRenderSystem.createRenderer(renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout());
     pointLightSystem.createRenderer(renderer.getSwapChainRenderPass(), globalSetLayout->getDescriptorSetLayout());
@@ -27,8 +30,7 @@ void TestApp::renderSystems(VkCommandBuffer commandBuffer, mnlt::FrameInfo frame
 }
 void TestApp::update(mnlt::Time time)
 {
-    if(window.wasWindowResized())
-        camera.setPerspectiveProjection(glm::radians(50.f), renderer.getAspectRatio(), 0.1f, 1000.f);
+    camera.setPerspectiveProjection(glm::radians(50.f), renderer.getAspectRatio(), 0.1f, 1000.f);
     camera.move(window.getGLFWwindow(), time.getPureDeltaTime());
 }
 
@@ -55,11 +57,15 @@ void TestApp::loadGameObjects()
     model = mnlt::Model::createModelFromFile(device, "assets/models/viking_room.obj");
     auto& viking = gameObjectManager.createGameObject();
     viking.model = model;
-    viking.diffuseMap = mnlt::Texture::createTextureFromFile(device, "assets/textures/viking_room.png");
+    viking.diffuseMap = mnlt::Texture::createTextureFromFile(device, {"assets/textures/viking_room.png"});
     viking.transform.translation = {0.0f, -.1f, 0.0f};
     viking.transform.rotation = {1.55f, 1.55f, 0.f};
     viking.transform.scale = {1.0f, 1.0f, 1.0f};
     viking.name = "viking";
+
+
+
+
     std::vector<glm::vec3> lightColors
     {
         {1.f, .1f, .1f},

@@ -6,8 +6,8 @@
 
 int main()
 {
-    //PartcleLife p{};
-    //GravityApp g{};
+    /* PartcleLife p{}; */
+    /* GravityApp g{}; */
     TestApp t{};
 
     try
