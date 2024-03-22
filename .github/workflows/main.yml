@@ -3,10 +3,11 @@ name: Deploy to EC2
 on:
   workflow_dispatch:
     inputs:
-      tagName:
-        description: 'Tag Name for Deployment (Optional)'
-        required: false
-        default: ''
+      tag:
+        description: 'Tag to deploy'
+        required: true
+        default: 'latest'
+
 
 env:
   IMAGE_NAME: md-backend-api-image
